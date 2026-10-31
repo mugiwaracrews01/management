@@ -1,106 +1,58 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>ERP FIX ALL V9</title>
-<style>
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui;background:#f8fafc}
-.h{background:#0f172a;color:#fff;padding:14px 20px;display:flex;justify-content:space-between}
-.n{max-width:1300px;margin:0 auto;padding:10px 16px;display:flex;gap:6px;overflow:auto;background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:20}
-.n div{padding:8px 14px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px;background:#f1f5f9;border:1px solid #e2e8f0;white-space:nowrap}
-.n div.active{background:#0f172a;color:#fff}
-.w{max-width:1300px;margin:auto;padding:12px}
-.c{background:#fff;border-radius:12px;padding:16px;margin-bottom:12px;border:1px solid #f1f5f9;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-.r{display:flex;gap:6px;flex-wrap:wrap;align-items:end}
-input,select{padding:8px 10px;border:1px solid #cbd5e1;border-radius:8px;font-size:12px;min-width:110px}
-button{padding:8px 14px;border-radius:8px;border:0;background:#0f172a;color:#fff;cursor:pointer;font-weight:700;font-size:12px}
-button.g{background:#16a34a}button.a{background:#d97706}button.e{background:#dc2626}button.b{background:#2563eb}
-.t-wrap{overflow:auto;max-height:55vh;border:1px solid #e2e8f0;border-radius:10px}
-table{width:100%;border-collapse:collapse;font-size:12px;min-width:750px}
-th{position:sticky;top:0;background:#f8fafc;padding:10px 8px;text-align:left;border-bottom:2px solid #e2e8f0;font-size:11px;color:#475569}
-td{padding:8px;border-bottom:1px solid #f8fafc}
-tr:nth-child(even){background:#fcfcfc}tr:hover{background:#f0f9ff}
-.m{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:100}
-.mx{background:#fff;border-radius:12px;padding:16px;max-width:750px;width:94%;max-height:85vh;overflow:auto}
-.k{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
-.k2{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:10px}
-@media(max-width:700px){.k,.k2{grid-template-columns:repeat(2,1fr)}}
-.search{width:100%;padding:8px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:12px;margin-bottom:8px}
-.need{background:#f0f9ff;border:1px solid #bfdbfe;padding:10px;border-radius:8px;font-size:12px;margin-top:8px}
-</style>
-</head>
-<body>
-<div class="h"><b>ERP FIX ALL FUNCTION V9</b><span id="clock" style="font-size:10px"></span></div>
-<div class="n">
-<div class="active" onclick="goTab(0)">1. Bahan</div>
-<div onclick="goTab(1)">2. BOM</div>
-<div onclick="goTab(2)">3. Produksi</div>
-<div onclick="goTab(3)">4. Stok</div>
-<div onclick="goTab(4)">5. Jual + Bukti</div>
-<div onclick="goTab(5)">6. Laba Fix</div>
-</div>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>ERP V10 SUPER FIX</title>
+<style>*{box-sizing:border-box}body{margin:0;font-family:Inter;background:#f8fafc}.h{background:#0f172a;color:#fff;padding:14px 20px;display:flex;justify-content:space-between}.n{max-width:1300px;margin:0 auto;padding:10px 16px;display:flex;gap:6px;overflow:auto;background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:20}.n div{padding:8px 14px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px;background:#f1f5f9;border:1px solid #e2e8f0;white-space:nowrap}.n div.active{background:#0f172a;color:#fff}.w{max-width:1300px;margin:auto;padding:12px}.c{background:#fff;border-radius:12px;padding:16px;margin-bottom:12px;border:1px solid #f1f5f9}.r{display:flex;gap:6px;flex-wrap:wrap;align-items:end}input,select{padding:8px 10px;border:1px solid #cbd5e1;border-radius:8px;font-size:12px;min-width:110px}button{padding:8px 14px;border-radius:8px;border:0;background:#0f172a;color:#fff;cursor:pointer;font-weight:700;font-size:12px}button.g{background:#16a34a}button.a{background:#d97706}button.e{background:#dc2626}button.b{background:#2563eb}.t-wrap{overflow:auto;max-height:55vh;border:1px solid #e2e8f0;border-radius:10px}table{width:100%;border-collapse:collapse;font-size:12px;min-width:750px}th{position:sticky;top:0;background:#f8fafc;padding:10px 8px;text-align:left;border-bottom:2px solid #e2e8f0;font-size:11px}td{padding:8px;border-bottom:1px solid #f8fafc}tr:nth-child(even){background:#fcfcfc}tr:hover{background:#f0f9ff}.m{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:100}.mx{background:#fff;border-radius:12px;padding:16px;max-width:750px;width:94%;max-height:85vh;overflow:auto}.k{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}.search{width:100%;padding:8px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:12px;margin-bottom:8px}.need{background:#f0f9ff;border:1px solid #bfdbfe;padding:10px;border-radius:8px;font-size:12px;margin-top:8px}</style></head><body>
+<div class="h"><b>ERP V10 SUPER FIX ALL - KLIK RESET JIKA ERROR</b><span id="clock" style="font-size:10px"></span></div>
+<div class="n"><div class="active" onclick="goTab(0)">1. Bahan</div><div onclick="goTab(1)">2. BOM</div><div onclick="goTab(2)">3. Produksi</div><div onclick="goTab(3)">4. Stok</div><div onclick="goTab(4)">5. Jual + Bukti</div><div onclick="goTab(5)">6. Laba Fix</div></div>
 <div class="w">
 <div class="k" id="kpiTop"></div>
+<div style="margin-bottom:10px"><button onclick="resetAll()" style="background:#fee2e2;color:#dc2626">🔄 RESET DATA JIKA TOMBOL TIDAK BERFUNGSI</button> <small style="font-size:10px;color:#64748b">Klik ini kalau simpan bahan masih tidak berfungsi karena data lama corrupt</small></div>
 
-<div id="tab0" class="tab"><div class="c">
-<h3 style="margin:0">1. Bahan Baku - KLIK BARIS UNTUK EDIT</h3>
-<input id="searchBahan" class="search" placeholder="🔍 Cari bahan..." oninput="render()">
-<div class="r" style="margin:8px 0">
-<input id="b_kode" placeholder="Kode * BH-001">
-<input id="b_nama" placeholder="Nama * Tepung">
-<input id="b_stok" type="number" placeholder="Stok 100">
-<input id="b_satuan" placeholder="Satuan kg">
-<input id="b_harga" type="number" placeholder="Harga 12000">
-<button class="g" onclick="saveBahan()">Simpan Bahan</button>
-<button class="e" onclick="deleteBahan()">Hapus Terpilih</button>
-</div>
-<div class="t-wrap"><table><thead><tr><th>Kode</th><th>Nama</th><th>Stok</th><th>Satuan</th><th>Harga</th><th>Nilai</th></tr></thead><tbody id="tblBahan"></tbody></table></div>
-</div></div>
+<div id="tab0" class="tab"><div class="c"><h3 style="margin:0">1. Bahan Baku - TEST SIMPAN BAHAN DI SINI</h3><input id="searchBahan" class="search" placeholder="🔍 Cari bahan..." oninput="render()"><div class="r" style="margin:8px 0"><input id="b_kode" placeholder="Kode * BH-001"><input id="b_nama" placeholder="Nama * Tepung"><input id="b_stok" type="number" placeholder="Stok 100"><input id="b_satuan" placeholder="Satuan kg"><input id="b_harga" type="number" placeholder="Harga 12000"><button id="btnSaveBahan" class="g">Simpan Bahan</button><button id="btnDelBahan" class="e">Hapus Terpilih</button></div><div class="t-wrap"><table><thead><tr><th>Kode</th><th>Nama</th><th>Stok</th><th>Satuan</th><th>Harga</th><th>Nilai</th></tr></thead><tbody id="tblBahan"></tbody></table></div></div></div>
 
-<div id="tab1" class="tab" style="display:none">
-<div class="c" style="background:#fffbeb;border:1px solid #fde68a"><h3 style="margin:0">Input Barang Jadi Baru - Hasil = jumlah jadi per 1 resep</h3><div class="r" style="margin-top:8px"><input id="j_kode" placeholder="Kode Jadi * JD-001"><input id="j_nama" placeholder="Nama Jadi *"><input id="j_hasil" type="number" placeholder="Hasil/Resep * 20"><input id="j_jual" type="number" placeholder="Harga Jual 15000"><button class="a" onclick="saveJadi()">Simpan Jadi</button></div></div>
-<div class="c"><h3 style="margin:0">Tambah Bahan ke Resep - Jika Nama Sama = 1 Resep</h3><div class="r" style="margin-top:8px"><select id="bom_kode_jadi"></select><select id="bom_kode_bahan"></select><input id="bom_butuh" type="number" step="0.01" placeholder="Butuh Qty *"><button class="b" onclick="saveBom()">+ Tambah ke Resep</button></div></div>
-<div class="c"><h3 style="margin:0">Daftar Resep - 1 Nama = 1 Resep</h3><input id="searchBom" class="search" placeholder="🔍 Cari resep..." oninput="render()"><div class="t-wrap"><table><thead><tr><th>Kode Jadi</th><th>Nama Jadi</th><th>Jml Bahan</th><th>Hasil/Resep</th><th>HPP/Resep</th><th>Aksi</th></tr></thead><tbody id="tblBom"></tbody></table></div></div>
-</div>
+<div id="tab1" class="tab" style="display:none"><div class="c" style="background:#fffbeb;border:1px solid #fde68a"><h3 style="margin:0">Input Barang Jadi - Hasil = pcs per 1 resep</h3><div class="r" style="margin-top:8px"><input id="j_kode" placeholder="Kode Jadi * JD-001"><input id="j_nama" placeholder="Nama Jadi *"><input id="j_hasil" type="number" placeholder="Hasil/Resep * 20"><input id="j_jual" type="number" placeholder="Harga Jual"><button id="btnSaveJadi" class="a">Simpan Jadi</button></div></div><div class="c"><h3 style="margin:0">Tambah Bahan ke Resep - 1 Nama = 1 Resep</h3><div class="r" style="margin-top:8px"><select id="bom_kode_jadi"></select><select id="bom_kode_bahan"></select><input id="bom_butuh" type="number" step="0.01" placeholder="Butuh Qty *"><button id="btnSaveBom" class="b">+ Tambah ke Resep</button></div></div><div class="c"><h3 style="margin:0">Daftar Resep</h3><input id="searchBom" class="search" placeholder="🔍 Cari resep..." oninput="render()"><div class="t-wrap"><table><thead><tr><th>Kode Jadi</th><th>Nama Jadi</th><th>Jml Bahan</th><th>Hasil/Resep</th><th>HPP/Resep</th><th>Aksi</th></tr></thead><tbody id="tblBom"></tbody></table></div></div></div>
 
-<div id="tab2" class="tab" style="display:none"><div class="c"><h3 style="margin:0">3. Produksi - Input Jumlah Yang Akan Dibuat (pcs)</h3><div class="r"><select id="prod_kode_jadi" onchange="calcNeed()"></select><input id="prod_jml" type="number" placeholder="Jumlah Akan Dibuat * ex:100" oninput="calcNeed()"><button class="a" onclick="doProduksi()">PROSES PRODUKSI</button></div><div id="prodNeed" class="need" style="display:none"></div><div class="t-wrap" style="margin-top:10px"><table><thead><tr><th>Tgl</th><th>Kode</th><th>Nama</th><th>Jml Dibuat</th><th>HPP Total</th><th>HPP Satuan</th><th>Detail</th></tr></thead><tbody id="tblProd"></tbody></table></div></div></div>
+<div id="tab2" class="tab" style="display:none"><div class="c"><h3 style="margin:0">3. Produksi - Input Jumlah Akan Dibuat</h3><div class="r"><select id="prod_kode_jadi"></select><input id="prod_jml" type="number" placeholder="Jumlah Akan Dibuat * 100" oninput="calcNeed()"><button id="btnProduksi" class="a">PROSES PRODUKSI</button></div><div id="prodNeed" class="need" style="display:none"></div><div class="t-wrap" style="margin-top:10px"><table><thead><tr><th>Tgl</th><th>Kode</th><th>Nama</th><th>Jml Dibuat</th><th>HPP Total</th><th>HPP Satuan</th><th>Detail</th></tr></thead><tbody id="tblProd"></tbody></table></div></div></div>
 
 <div id="tab3" class="tab" style="display:none"><div class="c"><h3 style="margin:0">4. Stok Jadi</h3><input id="searchStok" class="search" placeholder="🔍 Cari..." oninput="render()"><div class="t-wrap"><table><thead><tr><th>Kode</th><th>Nama</th><th>Stok</th><th>HPP</th><th>Jual</th><th>Laba/pcs</th><th>Nilai</th></tr></thead><tbody id="tblStok"></tbody></table></div></div></div>
 
-<div id="tab4" class="tab" style="display:none">
-<div class="c" style="background:#f8fafc;border:1px dashed #cbd5e1"><b>Warung / Customer</b><div class="r" style="margin-top:6px"><input id="w_nama" placeholder="Nama Warung *"><button class="b" onclick="saveWarung()">+ Tambah Warung</button></div><div id="warungList" style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap"></div></div>
-<div class="c"><h3 style="margin:0">5. Penjualan + Upload Bukti + Detail Popup</h3><div class="r" style="margin:8px 0"><input type="date" id="jual_f1"><input type="date" id="jual_f2"><input id="searchJual" placeholder="🔍 Cari warung / barang..." oninput="render()"><button onclick="jual_f1.value='';jual_f2.value='';searchJual.value='';render()" style="background:#f1f5f9;color:#0f172a">Reset</button></div><div class="r"><select id="jual_warung"></select><select id="jual_kode_jadi"></select><input id="jual_jml" type="number" placeholder="Jml *" oninput="calcJual()"><select id="jual_bayar" onchange="toggleDP()"><option value="Lunas">Lunas</option><option value="DP">DP</option><option value="Piutang">Piutang</option></select><input id="jual_total" readonly placeholder="Total"><input id="jual_dp" type="number" placeholder="DP" style="display:none" oninput="calcJual()"><input id="jual_kurang" readonly placeholder="Kurang" style="display:none"></div><div class="r" style="margin-top:6px"><input type="file" id="jual_file" accept="image/*,.pdf" onchange="onFile(this,'jual')"><span id="jual_fname" style="font-size:11px">Belum ada bukti</span></div><div style="margin-top:6px"><button class="g" onclick="doJual()">Jual + Simpan</button></div><div class="t-wrap" style="margin-top:10px"><table><thead><tr><th>Tgl</th><th>Warung</th><th>Barang</th><th>Jml</th><th>Total</th><th>HPP</th><th>Laba</th><th>Bayar</th><th>Kurang</th><th>Bukti</th><th>Detail</th></tr></thead><tbody id="tblJual"></tbody></table></div></div>
-</div>
+<div id="tab4" class="tab" style="display:none"><div class="c" style="background:#f8fafc;border:1px dashed #cbd5e1"><b>Warung / Customer</b><div class="r" style="margin-top:6px"><input id="w_nama" placeholder="Nama Warung *"><button id="btnSaveWarung" class="b">+ Tambah Warung</button></div><div id="warungList" style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap"></div></div><div class="c"><h3 style="margin:0">5. Penjualan + Upload Bukti + Detail Popup</h3><div class="r"><select id="jual_warung"></select><select id="jual_kode_jadi"></select><input id="jual_jml" type="number" placeholder="Jml *" oninput="calcJual()"><select id="jual_bayar" onchange="toggleDP()"><option value="Lunas">Lunas</option><option value="DP">DP</option><option value="Piutang">Piutang</option></select><input id="jual_total" readonly placeholder="Total"><input id="jual_dp" type="number" placeholder="DP" style="display:none" oninput="calcJual()"><input id="jual_kurang" readonly placeholder="Kurang" style="display:none"></div><div class="r" style="margin-top:6px"><input type="file" id="jual_file" accept="image/*,.pdf"><span id="jual_fname" style="font-size:11px">Belum ada bukti</span></div><div style="margin-top:6px"><button id="btnJual" class="g">Jual + Simpan</button></div><div class="t-wrap" style="margin-top:10px"><table><thead><tr><th>Tgl</th><th>Warung</th><th>Barang</th><th>Jml</th><th>Total</th><th>HPP</th><th>Laba</th><th>Bayar</th><th>Kurang</th><th>Bukti</th><th>Detail</th></tr></thead><tbody id="tblJual"></tbody></table></div></div></div>
 
-<div id="tab5" class="tab" style="display:none"><div class="k2" id="kpiLaba"></div><div class="c"><h3 style="margin:0">6. Laba Rugi Fix - Omset & Laba Benar</h3><div class="r" style="margin:8px 0"><input type="date" id="keu_f1"><input type="date" id="keu_f2"><input id="searchKeu" placeholder="🔍 Cari..." oninput="render()"><button onclick="keu_f1.value='';keu_f2.value='';searchKeu.value='';render()" style="background:#f1f5f9;color:#0f172a">Reset</button></div><div class="r"><select id="keu_tipe"><option value="biaya">Biaya</option><option value="utang">Utang</option><option value="bayar_utang">Bayar Utang</option><option value="bayar_piutang">Terima Piutang</option><option value="masuk">Masuk/Modal</option></select><input id="keu_ket" placeholder="Keterangan *"><input id="keu_jml" type="number" placeholder="Jumlah *"><input type="file" id="keu_file" accept="image/*,.pdf" onchange="onFile(this,'keu')"><span id="keu_fname" style="font-size:11px">Belum ada bukti</span><button onclick="saveKeu()">Simpan</button></div><div class="t-wrap" style="margin-top:10px"><table><thead><tr><th>Tgl</th><th>Tipe</th><th>Ket</th><th>Jml</th><th>Bukti</th><th>Aksi</th></tr></thead><tbody id="tblKeu"></tbody></table></div><div style="margin-top:10px;padding:14px;background:#0f172a;color:#fff;border-radius:12px" id="labaBox"></div></div></div>
+<div id="tab5" class="tab" style="display:none"><div class="c"><h3 style="margin:0">6. Laba Rugi Fix</h3><div class="r"><select id="keu_tipe"><option value="biaya">Biaya</option><option value="utang">Utang</option><option value="bayar_utang">Bayar Utang</option><option value="bayar_piutang">Terima Piutang</option><option value="masuk">Masuk/Modal</option></select><input id="keu_ket" placeholder="Keterangan *"><input id="keu_jml" type="number" placeholder="Jumlah *"><input type="file" id="keu_file" accept="image/*,.pdf"><span id="keu_fname" style="font-size:11px">Belum ada bukti</span><button id="btnSaveKeu">Simpan</button></div><div class="t-wrap" style="margin-top:10px"><table><thead><tr><th>Tgl</th><th>Tipe</th><th>Ket</th><th>Jml</th><th>Bukti</th><th>Aksi</th></tr></thead><tbody id="tblKeu"></tbody></table></div><div style="margin-top:10px;padding:14px;background:#0f172a;color:#fff;border-radius:12px" id="labaBox"></div></div></div>
 </div>
 
 <div id="modal" class="m" onclick="if(event.target.id==='modal')modal.style.display='none'"><div class="mx"><div style="display:flex;justify-content:space-between"><h3 id="mTitle">Detail</h3><button onclick="modal.style.display='none'">X</button></div><div id="mBody" style="margin-top:10px"></div></div></div>
 <div id="modalBukti" class="m" onclick="if(event.target.id==='modalBukti')modalBukti.style.display='none'"><div class="mx"><div style="display:flex;justify-content:space-between"><h3>Bukti</h3><button onclick="modalBukti.style.display='none'">X</button></div><div id="mBuktiBody" style="margin-top:10px;text-align:center"></div></div></div>
 
 <script>
-let DB=JSON.parse(localStorage.getItem('ERP_V9_FINAL')||'{"bahan":[{"kode":"BH-001","nama":"Tepung","stok":100,"satuan":"kg","harga":12000}],"jadi":[{"kode":"JD-001","nama":"Roti Tawar","stok":20,"hpp":6000,"harga_jual":15000,"hasil":20}],"bom":[{"id":1,"kode_jadi":"JD-001","nama_jadi":"Roti Tawar","kode_bahan":"BH-001","bahan_nama":"Tepung","butuh":5,"hasil":20}],"produksi":[],"jual":[],"warung":[{"nama":"Warung A"}],"keu":[]}');
-let selBahan=null,curResep=null,bJual="",bJualName="",bKeu="",bKeuName="";
+function gid(id){return document.getElementById(id);}
+let DB;
+try{DB=JSON.parse(localStorage.getItem('ERP_V10_FINAL')||'');if(!DB||!DB.bahan)throw 'empty';}catch(e){
+DB={"bahan":[{"kode":"BH-001","nama":"Tepung","stok":100,"satuan":"kg","harga":12000}],"jadi":[{"kode":"JD-001","nama":"Roti Tawar","stok":20,"hpp":6000,"harga_jual":15000,"hasil":20}],"bom":[{"id":1,"kode_jadi":"JD-001","nama_jadi":"Roti Tawar","kode_bahan":"BH-001","bahan_nama":"Tepung","butuh":5,"hasil":20}],"produksi":[],"jual":[],"warung":[{"nama":"Warung A"}],"keu":[]};
+localStorage.setItem('ERP_V10_FINAL',JSON.stringify(DB));
+}
+let selBahan=null,curResep=null,bJual="",bJualName="",bKeu="",bKeuName="",buktiIdxJual=null,buktiIdxKeu=null;
 
 function goTab(n){document.querySelectorAll('.tab').forEach((e,i)=>e.style.display=i===n?'block':'none');document.querySelectorAll('.n div').forEach((e,i)=>e.classList.toggle('active',i===n));render();}
-function save(){localStorage.setItem('ERP_V9_FINAL',JSON.stringify(DB));render();}
-function inRange(t,f1,f2){if(!f1&&!f2)return true;let d=new Date(t);if(isNaN(d))return true;let a=f1?new Date(f1):null,b=f2?new Date(f2):null;if(b)b.setHours(23,59,59);if(a&&d<a)return false;if(b&&d>b)return false;return true;}
+function save(){localStorage.setItem('ERP_V10_FINAL',JSON.stringify(DB));render();}
+function resetAll(){if(confirm('Reset semua data ke awal?')){localStorage.removeItem('ERP_V10_FINAL');location.reload();}}
 
 function saveBahan(){
-let k=document.getElementById('b_kode').value.trim().toUpperCase();
-let n=document.getElementById('b_nama').value.trim();
-let s=parseFloat(document.getElementById('b_stok').value)||0;
-let t=document.getElementById('b_satuan').value.trim()||'kg';
-let h=parseFloat(document.getElementById('b_harga').value)||0;
+try{
+let k=gid('b_kode').value.trim().toUpperCase();
+let n=gid('b_nama').value.trim();
+let s=parseFloat(gid('b_stok').value)||0;
+let t=gid('b_satuan').value.trim()||'kg';
+let h=parseFloat(gid('b_harga').value)||0;
 if(!k||!n){alert('Kode dan Nama Bahan wajib diisi');return;}
 let i=DB.bahan.findIndex(x=>x.kode===k);
 if(i>=0)DB.bahan[i]={kode:k,nama:n,stok:s,satuan:t,harga:h};else DB.bahan.push({kode:k,nama:n,stok:s,satuan:t,harga:h});
-document.getElementById('b_kode').value='';document.getElementById('b_nama').value='';document.getElementById('b_stok').value='';document.getElementById('b_satuan').value='';document.getElementById('b_harga').value='';
+gid('b_kode').value='';gid('b_nama').value='';gid('b_stok').value='';gid('b_satuan').value='';gid('b_harga').value='';
 save();
+alert('Bahan '+k+' berhasil disimpan!');
+}catch(err){alert('Error simpan bahan: '+err.message);}
 }
 function deleteBahan(){
-if(!selBahan){alert('Klik baris bahan dulu untuk memilih');return;}
+if(!selBahan){alert('Klik baris bahan dulu untuk memilih yang akan dihapus');return;}
 if(!confirm('Hapus bahan '+selBahan+'?'))return;
 DB.bahan=DB.bahan.filter(x=>x.kode!==selBahan);
 DB.bom=DB.bom.filter(x=>x.kode_bahan!==selBahan);
@@ -108,54 +60,57 @@ selBahan=null;
 save();
 }
 function saveJadi(){
-let k=document.getElementById('j_kode').value.trim().toUpperCase();
-let n=document.getElementById('j_nama').value.trim();
-let hs=parseFloat(document.getElementById('j_hasil').value)||0;
-let jl=parseFloat(document.getElementById('j_jual').value)||0;
-if(!k||!n||!hs){alert('Kode Jadi, Nama Jadi, dan Hasil/Resep wajib diisi. Hasil = jumlah pcs yang dihasilkan dari 1 resep');return;}
+let k=gid('j_kode').value.trim().toUpperCase();
+let n=gid('j_nama').value.trim();
+let hs=parseFloat(gid('j_hasil').value)||0;
+let jl=parseFloat(gid('j_jual').value)||0;
+if(!k||!n||!hs){alert('Kode Jadi, Nama Jadi, dan Hasil/Resep wajib. Hasil = jumlah pcs per 1 resep');return;}
 let i=DB.jadi.findIndex(x=>x.kode===k);
 if(i>=0){DB.jadi[i].nama=n;DB.jadi[i].hasil=hs;DB.jadi[i].harga_jual=jl;}else DB.jadi.push({kode:k,nama:n,stok:0,hpp:0,harga_jual:jl,hasil:hs});
-document.getElementById('j_kode').value='';document.getElementById('j_nama').value='';document.getElementById('j_hasil').value='';document.getElementById('j_jual').value='';
+gid('j_kode').value='';gid('j_nama').value='';gid('j_hasil').value='';gid('j_jual').value='';
 save();
 }
 function saveBom(){
-let kj=document.getElementById('bom_kode_jadi').value;
-let kb=document.getElementById('bom_kode_bahan').value;
-let bt=parseFloat(document.getElementById('bom_butuh').value)||0;
+let kj=gid('bom_kode_jadi').value;
+let kb=gid('bom_kode_bahan').value;
+let bt=parseFloat(gid('bom_butuh').value)||0;
 if(!kj||!kb||!bt){alert('Pilih Kode Jadi, Kode Bahan, dan isi Butuh Qty');return;}
 let jd=DB.jadi.find(x=>x.kode===kj);
 let bh=DB.bahan.find(x=>x.kode===kb);
 let ex=DB.bom.find(x=>x.kode_jadi===kj&&x.kode_bahan===kb);
 if(ex)ex.butuh+=bt;else DB.bom.push({id:Date.now(),kode_jadi:kj,nama_jadi:jd.nama,kode_bahan:kb,bahan_nama:bh.nama,butuh:bt,hasil:jd.hasil});
-document.getElementById('bom_butuh').value='';
+gid('bom_butuh').value='';
 save();
 }
 function calcNeed(){
-let kj=document.getElementById('prod_kode_jadi').value;
-let jml=parseFloat(document.getElementById('prod_jml').value)||0;
-let div=document.getElementById('prodNeed');
+let kj=gid('prod_kode_jadi').value;
+let jml=parseFloat(gid('prod_jml').value)||0;
+let div=gid('prodNeed');
+if(!div)return;
 if(!kj||!jml){div.style.display='none';return;}
 let jadi=DB.jadi.find(x=>x.kode===kj);
+if(!jadi){div.style.display='none';return;}
 let rows=DB.bom.filter(x=>x.kode_jadi===kj);
-if(!rows.length){div.style.display='block';div.innerHTML='<b style="color:#dc2626">Belum ada resep untuk '+kj+'</b> Buat resep dulu di Tab BOM';return;}
+if(!rows.length){div.style.display='block';div.innerHTML='<b style="color:#dc2626">Belum ada resep untuk '+kj+'</b>';return;}
 let faktor=jml/jadi.hasil;
 let total=0;
-let html=`<b>Untuk membuat ${jml} pcs ${jadi.nama}, dibutuhkan (Faktor ${jml}/${jadi.hasil}=${faktor.toFixed(2)}x resep):</b><br><br><table style="width:100%;font-size:11px"><thead><tr><th>Bahan</th><th>Butuh/Resep</th><th>Total Butuh</th><th>Stok</th><th>Status</th><th>Sub HPP</th></tr></thead><tbody>`;
+let html=`<b>Untuk membuat ${jml} pcs ${jadi.nama}, butuh Faktor ${jml}/${jadi.hasil}=${faktor.toFixed(2)}x resep:</b><br><br><table style="width:100%;font-size:11px"><thead><tr><th>Bahan</th><th>Butuh/Resep</th><th>Total Butuh</th><th>Stok</th><th>Status</th><th>Sub HPP</th></tr></thead><tbody>`;
 rows.forEach(r=>{
 let b=DB.bahan.find(x=>x.kode===r.kode_bahan);
+if(!b)return;
 let tot=r.butuh*faktor;
 let sub=b.harga*tot;
 total+=sub;
 let ok=b.stok>=tot;
-html+=`<tr><td>${r.bahan_nama}</td><td>${r.butuh} ${b.satuan}</td><td><b>${tot.toFixed(2)} ${b.satuan}</b></td><td>${b.stok}</td><td style="color:${ok?'#16a34a':'#dc2626'}">${ok?'✔ Cukup':'✘ Kurang'}</td><td>Rp${sub.toLocaleString()}</td></tr>`;
+html+=`<tr><td>${r.bahan_nama}</td><td>${r.butuh} ${b.satuan}</td><td><b>${tot.toFixed(2)} ${b.satuan}</b></td><td>${b.stok}</td><td style="color:${ok?'#16a34a':'#dc2626'}">${ok?'✔':'✘'}</td><td>Rp${sub.toLocaleString()}</td></tr>`;
 });
 html+=`</tbody></table><div style="margin-top:8px;text-align:right"><b>Total HPP Rp${total.toLocaleString()} | HPP/pcs Rp${(total/jml).toLocaleString()}</b></div>`;
 div.innerHTML=html;
 div.style.display='block';
 }
 function doProduksi(){
-let kj=document.getElementById('prod_kode_jadi').value;
-let jml=parseFloat(document.getElementById('prod_jml').value)||0;
+let kj=gid('prod_kode_jadi').value;
+let jml=parseFloat(gid('prod_jml').value)||0;
 if(!kj||!jml){alert('Pilih Barang Jadi dan isi Jumlah Akan Dibuat');return;}
 let jadi=DB.jadi.find(x=>x.kode===kj);
 let rows=DB.bom.filter(x=>x.kode_jadi===kj);
@@ -165,7 +120,7 @@ let total=0;
 for(let r of rows){
 let b=DB.bahan.find(x=>x.kode===r.kode_bahan);
 let butuh=r.butuh*faktor;
-if(b.stok<butuh){alert('Stok '+b.nama+' kurang. Butuh '+butuh.toFixed(2)+', stok '+b.stok);return;}
+if(!b||b.stok<butuh){alert('Stok '+r.bahan_nama+' kurang. Butuh '+butuh.toFixed(2)+', stok '+(b?b.stok:0));return;}
 total+=butuh*b.harga;
 }
 for(let r of rows){
@@ -179,40 +134,40 @@ let b=DB.bahan.find(x=>x.kode===r.kode_bahan);
 return {nama:r.bahan_nama,kode:r.kode_bahan,butuh_resep:r.butuh,total_butuh:r.butuh*faktor,satuan:b.satuan,harga:b.harga,sub:b.harga*r.butuh*faktor};
 });
 DB.produksi.unshift({tgl:new Date().toISOString().split('T')[0],kode:kj,nama:jadi.nama,jml:jml,hpp_total:total,hpp_satuan:total/jml,faktor:faktor,hasil_per_resep:jadi.hasil,detail:detail});
-document.getElementById('prod_jml').value='';
-document.getElementById('prodNeed').style.display='none';
+gid('prod_jml').value='';
+gid('prodNeed').style.display='none';
 save();
 }
 function saveWarung(){
-let n=document.getElementById('w_nama').value.trim();
+let n=gid('w_nama').value.trim();
 if(!n){alert('Nama warung wajib');return;}
 DB.warung.push({nama:n});
-document.getElementById('w_nama').value='';
+gid('w_nama').value='';
 save();
 }
 function toggleDP(){
-let v=document.getElementById('jual_bayar').value;
-document.getElementById('jual_dp').style.display=v==='DP'?'inline-block':'none';
-document.getElementById('jual_kurang').style.display=v==='DP'?'inline-block':'none';
+let v=gid('jual_bayar').value;
+gid('jual_dp').style.display=v==='DP'?'inline-block':'none';
+gid('jual_kurang').style.display=v==='DP'?'inline-block':'none';
 }
 function calcJual(){
-let kj=document.getElementById('jual_kode_jadi').value;
+let kj=gid('jual_kode_jadi').value;
 let jd=DB.jadi.find(x=>x.kode===kj);
 if(!jd)return;
-let jml=parseFloat(document.getElementById('jual_jml').value)||0;
+let jml=parseFloat(gid('jual_jml').value)||0;
 let tot=jml*jd.harga_jual;
-document.getElementById('jual_total').value=tot;
-if(document.getElementById('jual_bayar').value==='DP'){
-let dp=parseFloat(document.getElementById('jual_dp').value)||0;
-document.getElementById('jual_kurang').value=tot-dp;
+gid('jual_total').value=tot;
+if(gid('jual_bayar').value==='DP'){
+let dp=parseFloat(gid('jual_dp').value)||0;
+gid('jual_kurang').value=tot-dp;
 }
 }
 function doJual(){
-let kj=document.getElementById('jual_kode_jadi').value;
-let jml=parseFloat(document.getElementById('jual_jml').value)||0;
-let wr=document.getElementById('jual_warung').value;
-let by=document.getElementById('jual_bayar').value;
-let dp=parseFloat(document.getElementById('jual_dp').value)||0;
+let kj=gid('jual_kode_jadi').value;
+let jml=parseFloat(gid('jual_jml').value)||0;
+let wr=gid('jual_warung').value;
+let by=gid('jual_bayar').value;
+let dp=parseFloat(gid('jual_dp').value)||0;
 let jd=DB.jadi.find(x=>x.kode===kj);
 if(!jd){alert('Pilih Barang Jadi');return;}
 if(!jml||jml<=0){alert('Jumlah Jual wajib >0');return;}
@@ -224,137 +179,123 @@ let laba=total-hpp_total;
 let kurang=by==='DP'?total-dp:by==='Piutang'?total:0;
 jd.stok-=jml;
 DB.jual.unshift({tgl:new Date().toISOString().split('T')[0],warung:wr,barang:jd.nama,kode:jd.kode,jml:jml,total:total,hpp_satuan:hpp_satuan,hpp_total:hpp_total,laba:laba,bayar:by,dp:dp,kurang:kurang,bukti:bJual,nama_file:bJualName});
-if(by==='Lunas'){DB.keu.push({tgl:new Date().toISOString().split('T')[0],tipe:'masuk',ket:'Jual '+jd.nama+' ke '+wr+' ('+jml+' pcs)',jml:total,bukti:bJual,nama_file:bJualName});}
+if(by==='Lunas'){DB.keu.push({tgl:new Date().toISOString().split('T')[0],tipe:'masuk',ket:'Jual '+jd.nama+' ke '+wr,jml:total,bukti:bJual,nama_file:bJualName});}
 else if(by==='DP'){DB.keu.push({tgl:new Date().toISOString().split('T')[0],tipe:'dp',ket:'DP '+jd.nama+' '+wr,jml:dp,bukti:bJual,nama_file:bJualName});DB.keu.push({tgl:new Date().toISOString().split('T')[0],tipe:'piutang',ket:'Sisa Piutang '+jd.nama+' '+wr,jml:kurang,bukti:'',nama_file:''});}
 else{DB.keu.push({tgl:new Date().toISOString().split('T')[0],tipe:'piutang',ket:'Piutang '+jd.nama+' '+wr,jml:total,bukti:bJual,nama_file:bJualName});}
-document.getElementById('jual_jml').value='';document.getElementById('jual_total').value='';document.getElementById('jual_dp').value='';document.getElementById('jual_kurang').value='';bJual='';bJualName='';document.getElementById('jual_fname').innerText='Belum ada bukti';document.getElementById('jual_file').value='';
+gid('jual_jml').value='';gid('jual_total').value='';gid('jual_dp').value='';gid('jual_kurang').value='';bJual='';bJualName='';gid('jual_fname').innerText='Belum ada bukti';gid('jual_file').value='';
 save();
 }
 function saveKeu(){
-let t=document.getElementById('keu_tipe').value;
-let k=document.getElementById('keu_ket').value.trim();
-let j=parseFloat(document.getElementById('keu_jml').value)||0;
+let t=gid('keu_tipe').value;
+let k=gid('keu_ket').value.trim();
+let j=parseFloat(gid('keu_jml').value)||0;
 if(!k||!j){alert('Keterangan dan Jumlah wajib');return;}
 DB.keu.push({tgl:new Date().toISOString().split('T')[0],tipe:t,ket:k,jml:j,bukti:bKeu,nama_file:bKeuName});
-document.getElementById('keu_ket').value='';document.getElementById('keu_jml').value='';bKeu='';bKeuName='';document.getElementById('keu_fname').innerText='Belum ada bukti';document.getElementById('keu_file').value='';
+gid('keu_ket').value='';gid('keu_jml').value='';bKeu='';bKeuName='';gid('keu_fname').innerText='Belum ada bukti';gid('keu_file').value='';
 save();
-}
-function onFile(el,ty){
-let f=el.files[0];if(!f)return;
-let r=new FileReader();
-r.onload=e=>{
-if(ty==='jual'){bJual=e.target.result;bJualName=f.name;document.getElementById('jual_fname').innerText=f.name;}
-else{bKeu=e.target.result;bKeuName=f.name;document.getElementById('keu_fname').innerText=f.name;}
-};
-r.readAsDataURL(f);
 }
 function detailBOM(k){
 curResep=k;
 let jd=DB.jadi.find(x=>x.kode===k);
 let rows=DB.bom.filter(x=>x.kode_jadi===k);
 let tot=rows.reduce((s,r)=>{let b=DB.bahan.find(x=>x.kode===r.kode_bahan);return s+(b?b.harga*r.butuh:0)},0);
-let html=`<div style="background:#f8fafc;padding:10px;border-radius:8px;font-size:12px;margin-bottom:8px"><b>${jd.nama}</b> (${jd.kode})<br>Hasil/Resep ${jd.hasil} pcs | HPP Resep Rp${tot.toLocaleString()} | HPP/pcs Rp${(tot/jd.hasil).toLocaleString()}</div><div class="t-wrap"><table><thead><tr><th>Bahan</th><th>Butuh/Resep</th><th>Harga</th><th>Sub</th><th>Aksi</th></tr></thead><tbody>`;
-rows.forEach(r=>{let b=DB.bahan.find(x=>x.kode===r.kode_bahan);let sub=b.harga*r.butuh;html+=`<tr><td><b>${r.bahan_nama}</b><br><small>${r.kode_bahan}</small></td><td>${r.butuh} ${b.satuan}</td><td>Rp${b.harga.toLocaleString()}</td><td>Rp${sub.toLocaleString()}</td><td><button onclick="editBom(${r.id})" style="background:#2563eb;padding:4px 8px;font-size:11px">Edit</button> <button onclick="hapusBom(${r.id})" style="background:#dc2626;padding:4px 8px;font-size:11px">Hapus</button></td></tr>`;});
+let html=`<div style="background:#f8fafc;padding:10px;border-radius:8px;font-size:12px;margin-bottom:8px"><b>${jd.nama}</b> (${jd.kode})<br>Hasil/Resep ${jd.hasil} pcs | HPP Resep Rp${tot.toLocaleString()}</div><div class="t-wrap"><table><thead><tr><th>Bahan</th><th>Butuh</th><th>Harga</th><th>Sub</th><th>Aksi</th></tr></thead><tbody>`;
+rows.forEach(r=>{let b=DB.bahan.find(x=>x.kode===r.kode_bahan);if(!b)return;let sub=b.harga*r.butuh;html+=`<tr><td><b>${r.bahan_nama}</b></td><td>${r.butuh} ${b.satuan}</td><td>Rp${b.harga.toLocaleString()}</td><td>Rp${sub.toLocaleString()}</td><td><button onclick="editBom(${r.id})" style="background:#2563eb;padding:4px 8px;font-size:11px">Edit</button> <button onclick="hapusBom(${r.id})" style="background:#dc2626;padding:4px 8px;font-size:11px">Hapus</button></td></tr>`;});
 html+=`</tbody></table></div>`;
-document.getElementById('mTitle').innerText='Detail Resep: '+jd.nama;
-document.getElementById('mBody').innerHTML=html;
-document.getElementById('modal').style.display='flex';
+gid('mTitle').innerText='Detail Resep: '+jd.nama;
+gid('mBody').innerHTML=html;
+gid('modal').style.display='flex';
 }
 function detailProd(i){
 let p=DB.produksi[i];
-let html=`<div style="background:#f8fafc;padding:10px;border-radius:8px;font-size:12px;margin-bottom:10px"><b>${p.nama}</b> (${p.kode})<br>Tgl: ${p.tgl}<br>Jml Dibuat: <b>${p.jml} pcs</b> | Hasil/Resep: ${p.hasil_per_resep} pcs | Faktor: ${p.faktor.toFixed(2)}x<br><br><b>HPP Total Rp${p.hpp_total.toLocaleString()}</b><br>HPP Satuan Rp${p.hpp_satuan.toLocaleString()}</div><div class="t-wrap"><table><thead><tr><th>Bahan</th><th>Butuh/Resep</th><th>Total Butuh</th><th>Harga</th><th>Sub HPP</th></tr></thead><tbody>`;
-p.detail.forEach(d=>{html+=`<tr><td><b>${d.nama}</b><br><small>${d.kode}</small></td><td>${d.butuh_resep} ${d.satuan}</td><td><b>${d.total_butuh.toFixed(2)} ${d.satuan}</b></td><td>Rp${d.harga.toLocaleString()}</td><td>Rp${d.sub.toLocaleString()}</td></tr>`;});
+let html=`<div style="background:#f8fafc;padding:10px;border-radius:8px;font-size:12px;margin-bottom:10px"><b>${p.nama}</b> (${p.kode})<br>Tgl: ${p.tgl}<br>Jml: <b>${p.jml} pcs</b> | Faktor: ${p.faktor.toFixed(2)}x<br><b>HPP Total Rp${p.hpp_total.toLocaleString()}</b></div><div class="t-wrap"><table><thead><tr><th>Bahan</th><th>Total Butuh</th><th>Sub HPP</th></tr></thead><tbody>`;
+p.detail.forEach(d=>{html+=`<tr><td>${d.nama}</td><td><b>${d.total_butuh.toFixed(2)} ${d.satuan}</b></td><td>Rp${d.sub.toLocaleString()}</td></tr>`;});
 html+=`</tbody></table></div>`;
-document.getElementById('mTitle').innerText='Detail Produksi: '+p.nama;
-document.getElementById('mBody').innerHTML=html;
-document.getElementById('modal').style.display='flex';
+gid('mTitle').innerText='Detail Produksi';
+gid('mBody').innerHTML=html;
+gid('modal').style.display='flex';
 }
 function detailJual(i){
 let j=DB.jual[i];
-let html=`<div style="background:#f8fafc;padding:12px;border-radius:10px;font-size:12px;margin-bottom:10px">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-<div><b>Warung:</b> ${j.warung}<br><b>Barang:</b> ${j.barang} (${j.kode})<br><b>Tgl:</b> ${j.tgl}<br><b>Status:</b> ${j.bayar}</div>
-<div><b>Jumlah:</b> ${j.jml} pcs<br><b>Total Jual:</b> Rp${j.total.toLocaleString()}<br><b>DP:</b> Rp${(j.dp||0).toLocaleString()}<br><b>Kurang:</b> Rp${(j.kurang||0).toLocaleString()}</div>
-</div></div>
-<div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:12px;font-size:12px">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-<div><div style="color:#64748b;font-size:11px">HARGA JUAL</div>Harga Satuan: Rp${(j.total/j.jml).toLocaleString()}<br>Total: Rp${j.total.toLocaleString()}</div>
-<div><div style="color:#64748b;font-size:11px">HPP & LABA TRANSAKSI</div>HPP Satuan: Rp${(j.hpp_satuan||0).toLocaleString()}<br>HPP Total: Rp${(j.hpp_total||0).toLocaleString()}<br><div style="background:${j.laba>=0?'#dcfce7':'#fee2e2'};padding:8px;border-radius:8px;margin-top:6px"><b>Laba: Rp${(j.laba||0).toLocaleString()}</b></div></div>
-</div></div>
-<div style="margin-top:10px;padding:10px;background:#0f172a;color:#fff;border-radius:8px;font-size:11px">Ringkasan: Jual ${j.jml} pcs ${j.barang} ke ${j.warung} total Rp${j.total.toLocaleString()}, HPP Rp${j.hpp_total.toLocaleString()}, laba Rp${j.laba.toLocaleString()} | Bukti: ${j.nama_file||'Tidak ada'}</div>
-<div style="margin-top:10px;text-align:center">${j.bukti?`<button onclick="buktiIdxJual=${i};showBuktiJual()" style="background:#2563eb">📷 Lihat Bukti Transfer</button>`:'Tidak ada bukti'}</div>`;
-document.getElementById('mTitle').innerText='Detail Penjualan: '+j.barang;
-document.getElementById('mBody').innerHTML=html;
-document.getElementById('modal').style.display='flex';
+let html=`<div style="background:#f8fafc;padding:12px;border-radius:10px;font-size:12px"><b>Warung:</b> ${j.warung}<br><b>Barang:</b> ${j.barang} (${j.kode})<br><b>Tgl:</b> ${j.tgl}<br><b>Jumlah:</b> ${j.jml} pcs<br><b>Total Jual:</b> Rp${j.total.toLocaleString()}<br><b>HPP Total:</b> Rp${j.hpp_total.toLocaleString()}<br><div style="background:${j.laba>=0?'#dcfce7':'#fee2e2'};padding:8px;border-radius:8px;margin-top:6px"><b>Laba: Rp${j.laba.toLocaleString()}</b></div><br><b>Bayar:</b> ${j.bayar} | <b>DP:</b> Rp${(j.dp||0).toLocaleString()} | <b>Kurang:</b> Rp${(j.kurang||0).toLocaleString()}</div><div style="margin-top:10px;text-align:center">${j.bukti?`<button onclick="buktiIdxJual=${i};showBuktiJual()" style="background:#2563eb">📷 Lihat Bukti ${j.nama_file}</button>`:'Tidak ada bukti'}</div>`;
+gid('mTitle').innerText='Detail Penjualan';
+gid('mBody').innerHTML=html;
+gid('modal').style.display='flex';
 }
-let buktiIdxJual=null, buktiIdxKeu=null;
 function showBuktiJual(){
 let j=DB.jual[buktiIdxJual];
-document.getElementById('modalBukti').style.display='flex';
-if(j.bukti&&j.bukti.startsWith('data:image'))document.getElementById('mBuktiBody').innerHTML=`<img src="${j.bukti}" style="max-width:100%;border-radius:10px"><div style="margin-top:8px">${j.nama_file}</div>`;
-else if(j.bukti)document.getElementById('mBuktiBody').innerHTML=`<a href="${j.bukti}" download="${j.nama_file}">Download ${j.nama_file}</a>`;
-else document.getElementById('mBuktiBody').innerHTML='Tidak ada bukti';
+gid('modalBukti').style.display='flex';
+if(j.bukti&&j.bukti.startsWith('data:image'))gid('mBuktiBody').innerHTML=`<img src="${j.bukti}" style="max-width:100%;border-radius:10px"><div>${j.nama_file}</div>`;
+else if(j.bukti)gid('mBuktiBody').innerHTML=`<a href="${j.bukti}" download="${j.nama_file}">Download ${j.nama_file}</a>`;
+else gid('mBuktiBody').innerHTML='Tidak ada bukti';
 }
 function showBuktiKeu(){
 let k=DB.keu[buktiIdxKeu];
-document.getElementById('modalBukti').style.display='flex';
-if(k.bukti&&k.bukti.startsWith('data:image'))document.getElementById('mBuktiBody').innerHTML=`<img src="${k.bukti}" style="max-width:100%;border-radius:10px"><div style="margin-top:8px">${k.nama_file}</div>`;
-else if(k.bukti)document.getElementById('mBuktiBody').innerHTML=`<a href="${k.bukti}" download="${k.nama_file}">Download</a>`;
-else document.getElementById('mBuktiBody').innerHTML='Tidak ada bukti';
+gid('modalBukti').style.display='flex';
+if(k.bukti&&k.bukti.startsWith('data:image'))gid('mBuktiBody').innerHTML=`<img src="${k.bukti}" style="max-width:100%;border-radius:10px"><div>${k.nama_file}</div>`;
+else if(k.bukti)gid('mBuktiBody').innerHTML=`<a href="${k.bukti}" download="${k.nama_file}">Download</a>`;
+else gid('mBuktiBody').innerHTML='Tidak ada bukti';
 }
-function editBom(id){let it=DB.bom.find(x=>x.id===id);let q=prompt('Edit qty butuh untuk '+it.bahan_nama+':',it.butuh);if(q!==null){let v=parseFloat(q);if(!isNaN(v)&&v>0){it.butuh=v;save();if(curResep)detailBOM(curResep);}}}
+function editBom(id){let it=DB.bom.find(x=>x.id===id);let q=prompt('Edit qty butuh:',it.butuh);if(q!==null){let v=parseFloat(q);if(!isNaN(v)&&v>0){it.butuh=v;save();if(curResep)detailBOM(curResep);}}}
 function hapusBom(id){DB.bom=DB.bom.filter(x=>x.id!==id);save();if(curResep)detailBOM(curResep);}
 function hapusResep(k){if(!confirm('Hapus resep '+k+'?'))return;DB.bom=DB.bom.filter(x=>x.kode_jadi!==k);save();}
-function hapusKeu(i){if(!confirm('Hapus transaksi keuangan ini?'))return;DB.keu.splice(i,1);save();}
+function hapusKeu(i){if(!confirm('Hapus?'))return;DB.keu.splice(i,1);save();}
 
 function render(){
-let fB=document.getElementById('searchBahan').value.toLowerCase();
-let fBom=document.getElementById('searchBom').value.toLowerCase();
-let fStok=document.getElementById('searchStok').value.toLowerCase();
-let fProd=document.getElementById('searchProd').value.toLowerCase();
-let fJual=document.getElementById('searchJual').value.toLowerCase();
-let fKeu=document.getElementById('searchKeu').value.toLowerCase();
-let pf1=document.getElementById('prod_f1')?document.getElementById('prod_f1').value:'';
-let pf2=document.getElementById('prod_f2')?document.getElementById('prod_f2').value:'';
-let jf1=document.getElementById('jual_f1').value,jf2=document.getElementById('jual_f2').value;
-let kf1=document.getElementById('keu_f1').value,kf2=document.getElementById('keu_f2').value;
+try{
+let fB=gid('searchBahan')?gid('searchBahan').value.toLowerCase():'';
+let fBom=gid('searchBom')?gid('searchBom').value.toLowerCase():'';
+let fStok=gid('searchStok')?gid('searchStok').value.toLowerCase():'';
+let fJual=gid('searchJual')?gid('searchJual').value.toLowerCase():'';
+let fKeu=gid('searchKeu')?gid('searchKeu').value.toLowerCase():'';
 
-let hb='';DB.bahan.filter(x=>(x.kode+x.nama).toLowerCase().includes(fB)).forEach(x=>{hb+=`<tr onclick="selBahan='${x.kode}';document.getElementById('b_kode').value='${x.kode}';document.getElementById('b_nama').value='${x.nama}';document.getElementById('b_stok').value='${x.stok}';document.getElementById('b_satuan').value='${x.satuan}';document.getElementById('b_harga').value='${x.harga}'" style="cursor:pointer"><td><b>${x.kode}</b></td><td><b>${x.nama}</b></td><td>${x.stok}</td><td>${x.satuan}</td><td>Rp${x.harga.toLocaleString()}</td><td>Rp${(x.stok*x.harga).toLocaleString()}</td></tr>`;});document.getElementById('tblBahan').innerHTML=hb;
+let hb='';DB.bahan.filter(x=>(x.kode+x.nama).toLowerCase().includes(fB)).forEach(x=>{hb+=`<tr onclick="selBahan='${x.kode}';gid('b_kode').value='${x.kode}';gid('b_nama').value='${x.nama}';gid('b_stok').value='${x.stok}';gid('b_satuan').value='${x.satuan}';gid('b_harga').value='${x.harga}'" style="cursor:pointer"><td><b>${x.kode}</b></td><td><b>${x.nama}</b></td><td>${x.stok}</td><td>${x.satuan}</td><td>Rp${x.harga.toLocaleString()}</td><td>Rp${(x.stok*x.harga).toLocaleString()}</td></tr>`;});if(gid('tblBahan'))gid('tblBahan').innerHTML=hb;
 
 let group={};DB.bom.forEach(x=>{if(!group[x.kode_jadi])group[x.kode_jadi]={kode:x.kode_jadi,nama:x.nama_jadi,c:0,hasil:x.hasil};group[x.kode_jadi].c++;});
 let hg='';Object.values(group).filter(x=>(x.kode+x.nama).toLowerCase().includes(fBom)).forEach(v=>{let tp=DB.bom.filter(x=>x.kode_jadi===v.kode).reduce((s,r)=>{let b=DB.bahan.find(x=>x.kode===r.kode_bahan);return s+(b?b.harga*r.butuh:0)},0);hg+=`<tr><td><b>${v.kode}</b></td><td><b>${v.nama}</b></td><td>${v.c} bahan</td><td>${v.hasil} pcs</td><td>Rp${tp.toLocaleString()}</td><td><button class="b" onclick="detailBOM('${v.kode}')">👁️ Detail</button> <button class="e" style="padding:4px 8px" onclick="hapusResep('${v.kode}')">Hapus</button></td></tr>`;});
-DB.jadi.forEach(j=>{if(!group[j.kode]&&(j.kode+j.nama).toLowerCase().includes(fBom))hg+=`<tr style="background:#fef9c3"><td><b>${j.kode}</b></td><td>${j.nama}</td><td>Belum ada resep</td><td>${j.hasil} pcs</td><td>-</td><td><button class="b" onclick="detailBOM('${j.kode}')">+ Buat Resep</button></td></tr>`;});document.getElementById('tblBom').innerHTML=hg;
-let optB=DB.bahan.map(x=>`<option value="${x.kode}">${x.kode} - ${x.nama} (stok ${x.stok})</option>`).join('');document.getElementById('bom_kode_bahan').innerHTML=optB;
-let optJ=DB.jadi.map(x=>`<option value="${x.kode}">${x.kode} - ${x.nama} (Hasil ${x.hasil})</option>`).join('');document.getElementById('bom_kode_jadi').innerHTML=optJ;document.getElementById('prod_kode_jadi').innerHTML=optJ;document.getElementById('jual_kode_jadi').innerHTML=optJ;
+DB.jadi.forEach(j=>{if(!group[j.kode]&&(j.kode+j.nama).toLowerCase().includes(fBom))hg+=`<tr style="background:#fef9c3"><td><b>${j.kode}</b></td><td>${j.nama}</td><td>Belum ada resep</td><td>${j.hasil} pcs</td><td>-</td><td><button class="b" onclick="detailBOM('${j.kode}')">+ Buat</button></td></tr>`;});if(gid('tblBom'))gid('tblBom').innerHTML=hg;
+let optB=DB.bahan.map(x=>`<option value="${x.kode}">${x.kode} - ${x.nama} (stok ${x.stok})</option>`).join('');if(gid('bom_kode_bahan'))gid('bom_kode_bahan').innerHTML=optB;
+let optJ=DB.jadi.map(x=>`<option value="${x.kode}">${x.kode} - ${x.nama} (Hasil ${x.hasil})</option>`).join('');if(gid('bom_kode_jadi'))gid('bom_kode_jadi').innerHTML=optJ;if(gid('prod_kode_jadi'))gid('prod_kode_jadi').innerHTML=optJ;if(gid('jual_kode_jadi'))gid('jual_kode_jadi').innerHTML=optJ;
 
-let prodList=DB.produksi.filter(x=>inRange(x.tgl,pf1,pf2)&&(x.kode+x.nama).toLowerCase().includes(fProd));
-let hp='';prodList.forEach((x,idx)=>{let real=DB.produksi.indexOf(x);hp+=`<tr><td>${x.tgl}</td><td><b>${x.kode}</b></td><td>${x.nama}</td><td><b>${x.jml} pcs</b></td><td>Rp${x.hpp_total.toLocaleString()}</td><td>Rp${x.hpp_satuan.toLocaleString()}</td><td><button class="b" onclick="detailProd(${real})">👁️ Detail HPP</button></td></tr>`;});document.getElementById('tblProd').innerHTML=hp;
+let hp='';DB.produksi.forEach((x,i)=>{hp+=`<tr><td>${x.tgl}</td><td><b>${x.kode}</b></td><td>${x.nama}</td><td><b>${x.jml} pcs</b></td><td>Rp${x.hpp_total.toLocaleString()}</td><td>Rp${x.hpp_satuan.toLocaleString()}</td><td><button class="b" onclick="detailProd(${i})">Detail</button></td></tr>`;});if(gid('tblProd'))gid('tblProd').innerHTML=hp;
 
-let hs='';DB.jadi.filter(x=>(x.kode+x.nama).toLowerCase().includes(fStok)).forEach(x=>{hs+=`<tr><td><b>${x.kode}</b></td><td>${x.nama}</td><td><b style="${x.stok<5?'color:#dc2626':''}">${x.stok}</b></td><td>Rp${(x.hpp||0).toLocaleString()}</td><td>Rp${x.harga_jual.toLocaleString()}</td><td style="color:${x.harga_jual-x.hpp>0?'#16a34a':'#dc2626'}">Rp${(x.harga_jual-x.hpp).toLocaleString()}</td><td>Rp${(x.stok*x.hpp).toLocaleString()}</td></tr>`;});document.getElementById('tblStok').innerHTML=hs;
+let hs='';DB.jadi.filter(x=>(x.kode+x.nama).toLowerCase().includes(fStok)).forEach(x=>{hs+=`<tr><td><b>${x.kode}</b></td><td>${x.nama}</td><td><b style="${x.stok<5?'color:#dc2626':''}">${x.stok}</b></td><td>Rp${(x.hpp||0).toLocaleString()}</td><td>Rp${x.harga_jual.toLocaleString()}</td><td style="color:${x.harga_jual-x.hpp>0?'#16a34a':'#dc2626'}">Rp${(x.harga_jual-x.hpp).toLocaleString()}</td><td>Rp${(x.stok*x.hpp).toLocaleString()}</td></tr>`;});if(gid('tblStok'))gid('tblStok').innerHTML=hs;
 
-let optW=DB.warung.map(x=>`<option value="${x.nama}">${x.nama}</option>`).join('');document.getElementById('jual_warung').innerHTML=optW;document.getElementById('warungList').innerHTML=DB.warung.map(x=>`<span style="background:#fff;border:1px solid #e2e8f0;padding:4px 10px;border-radius:20px;font-size:10px">${x.nama}</span>`).join('');
-let jualList=DB.jual.filter(x=>inRange(x.tgl,jf1,jf2)&&(x.warung+x.barang).toLowerCase().includes(fJual));
-let hj='';jualList.forEach((x)=>{let real=DB.jual.indexOf(x);let bukti=x.bukti?`<button onclick="buktiIdxJual=${real};showBuktiJual()" style="background:#e0f2fe;color:#0369a1;padding:3px 8px;font-size:10px;border-radius:6px">📷 Bukti</button>`:`<span style="font-size:10px;color:#94a3b8">-</span>`;hj+=`<tr><td>${x.tgl}</td><td><b>${x.warung}</b></td><td>${x.barang}<br><small>${x.kode}</small></td><td>${x.jml}</td><td>Rp${x.total.toLocaleString()}</td><td>Rp${(x.hpp_total||0).toLocaleString()}</td><td style="color:${x.laba>=0?'#16a34a':'#dc2626'}"><b>Rp${(x.laba||0).toLocaleString()}</b></td><td>${x.bayar}</td><td>Rp${(x.kurang||0).toLocaleString()}</td><td>${bukti}</td><td><button class="b" style="padding:4px 8px;font-size:10px" onclick="detailJual(${real})">👁️ Detail</button></td></tr>`;});document.getElementById('tblJual').innerHTML=hj;
+let optW=DB.warung.map(x=>`<option value="${x.nama}">${x.nama}</option>`).join('');if(gid('jual_warung'))gid('jual_warung').innerHTML=optW;if(gid('warungList'))gid('warungList').innerHTML=DB.warung.map(x=>`<span style="background:#fff;border:1px solid #e2e8f0;padding:4px 10px;border-radius:20px;font-size:10px">${x.nama}</span>`).join('');
+let hj='';DB.jual.filter(x=>(x.warung+x.barang).toLowerCase().includes(fJual)).forEach((x)=>{let real=DB.jual.indexOf(x);let bukti=x.bukti?`<button onclick="buktiIdxJual=${real};showBuktiJual()" style="background:#e0f2fe;color:#0369a1;padding:3px 8px;font-size:10px">📷 Bukti</button>`:`<span style="font-size:10px;color:#94a3b8">-</span>`;hj+=`<tr><td>${x.tgl}</td><td><b>${x.warung}</b></td><td>${x.barang}</td><td>${x.jml}</td><td>Rp${x.total.toLocaleString()}</td><td>Rp${(x.hpp_total||0).toLocaleString()}</td><td style="color:${x.laba>=0?'#16a34a':'#dc2626'}"><b>Rp${(x.laba||0).toLocaleString()}</b></td><td>${x.bayar}</td><td>Rp${(x.kurang||0).toLocaleString()}</td><td>${bukti}</td><td><button class="b" style="padding:4px 8px;font-size:10px" onclick="detailJual(${real})">Detail</button></td></tr>`;});if(gid('tblJual'))gid('tblJual').innerHTML=hj;
 
-let keuList=DB.keu.map((v,i)=>({...v,idx:i})).filter(x=>inRange(x.tgl,kf1,kf2)&&(x.ket+x.tipe).toLowerCase().includes(fKeu));
-let hk='';let ma=0,pa=0,ua=0,da=0,ba=0,bb=0,bi=0,mo=0;
-DB.keu.forEach(v=>{if(v.tipe==='masuk')ma+=v.jml;if(v.tipe==='piutang')pa+=v.jml;if(v.tipe==='utang')ua+=v.jml;if(v.tipe==='dp')da+=v.jml;if(v.tipe==='bayar_utang')ba+=v.jml;if(v.tipe==='bayar_piutang')bb+=v.jml;if(v.tipe==='biaya')bi+=v.jml;if(v.tipe==='modal')mo+=v.jml;});
-keuList.forEach(v=>{let bukti=v.bukti?`<button onclick="buktiIdxKeu=${v.idx};showBuktiKeu()" style="background:#e0f2fe;color:#0369a1;padding:3px 8px;font-size:10px">📷</button>`:`-`;hk+=`<tr><td>${v.tgl}</td><td>${v.tipe}</td><td>${v.ket}</td><td>Rp${v.jml.toLocaleString()}</td><td>${bukti}</td><td><button onclick="hapusKeu(${v.idx})" style="background:#fee2e2;color:#dc2626;padding:3px 8px;font-size:10px">Hapus</button></td></tr>`;});document.getElementById('tblKeu').innerHTML=hk;
+let keuList=DB.keu.map((v,i)=>({...v,idx:i})).filter(x=>(x.ket+x.tipe).toLowerCase().includes(fKeu));
+let hk='';let ma=0,bi=0;DB.keu.forEach(v=>{if(v.tipe==='masuk'||v.tipe==='dp'||v.tipe==='bayar_piutang')ma+=v.jml;if(v.tipe==='biaya'||v.tipe==='bayar_utang')bi+=v.jml;});
+keuList.forEach(v=>{let bukti=v.bukti?`<button onclick="buktiIdxKeu=${v.idx};showBuktiKeu()" style="background:#e0f2fe;color:#0369a1;padding:3px 8px;font-size:10px">📷</button>`:`-`;hk+=`<tr><td>${v.tgl}</td><td>${v.tipe}</td><td>${v.ket}</td><td>Rp${v.jml.toLocaleString()}</td><td>${bukti}</td><td><button onclick="hapusKeu(${v.idx})" style="background:#fee2e2;color:#dc2626;padding:3px 8px;font-size:10px">Hapus</button></td></tr>`;});if(gid('tblKeu'))gid('tblKeu').innerHTML=hk;
 
 let omset=DB.jual.reduce((s,v)=>s+v.total,0);
 let hppTerjual=DB.jual.reduce((s,v)=>s+(v.hpp_total||0),0);
 let labaKotor=omset-hppTerjual;
-let totalMasuk=ma+da+bb;
-let totalKeluar=bi+ba;
-let labaBersih=labaKotor+totalMasuk-totalKeluar;
+let labaBersih=labaKotor+ma-bi;
 
-document.getElementById('kpiTop').innerHTML=`<div class="c" style="padding:10px"><div style="font-size:10px;color:#64748b">OMSET</div><b>Rp${omset.toLocaleString()}</b><br><small style="font-size:10px">${DB.jual.length} transaksi</small></div><div class="c" style="padding:10px"><div style="font-size:10px;color:#64748b">HPP TERJUAL</div><b>Rp${hppTerjual.toLocaleString()}</b></div><div class="c" style="padding:10px"><div style="font-size:10px;color:#64748b">LABA KOTOR</div><b style="color:${labaKotor>=0?'#16a34a':'#dc2626'}">Rp${labaKotor.toLocaleString()}</b></div><div class="c" style="padding:10px"><div style="font-size:10px;color:#64748b">LABA BERSIH</div><b style="color:${labaBersih>=0?'#16a34a':'#dc2626'}">Rp${labaBersih.toLocaleString()}</b></div>`;
-document.getElementById('kpiLaba').innerHTML=`<div class="c" style="padding:10px"><div style="font-size:10px">OMSET</div><b>Rp${omset.toLocaleString()}</b></div><div class="c" style="padding:10px"><div style="font-size:10px">HPP TERJUAL</div><b>Rp${hppTerjual.toLocaleString()}</b></div><div class="c" style="padding:10px"><div style="font-size:10px">LABA KOTOR</div><b style="color:${labaKotor>=0?'#16a34a':'#dc2626'}">Rp${labaKotor.toLocaleString()}</b></div><div class="c" style="padding:10px"><div style="font-size:10px">MASUK LAIN</div><b style="color:#16a34a">Rp${totalMasuk.toLocaleString()}</b></div><div class="c" style="padding:10px"><div style="font-size:10px">BIAYA+UTANG</div><b style="color:#dc2626">Rp${totalKeluar.toLocaleString()}</b></div><div class="c" style="padding:10px"><div style="font-size:10px">LABA BERSIH</div><b style="color:${labaBersih>=0?'#16a34a':'#dc2626'}">Rp${labaBersih.toLocaleString()}</b></div>`;
-document.getElementById('labaBox').innerHTML=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:12px"><div><b>PERHITUNGAN FIX:</b><br>Omset (Total Jual): Rp${omset.toLocaleString()}<br>- HPP Terjual: Rp${hppTerjual.toLocaleString()}<br>= <b>Laba Kotor: Rp${labaKotor.toLocaleString()}</b><br><br>Laba Kotor Rp${labaKotor.toLocaleString()}<br>+ Masuk/DP/Pelunasan Rp${totalMasuk.toLocaleString()}<br>- Biaya/Bayar Utang Rp${totalKeluar.toLocaleString()}<br>= <b style="font-size:16px">Laba Bersih Rp${labaBersih.toLocaleString()}</b></div><div><b>INFO:</b><br>Total Transaksi Jual: ${DB.jual.length}<br>Total HPP Terjual: Rp${hppTerjual.toLocaleString()}<br>Omset sudah termasuk Lunas+DP+Piutang<br><br><small style="opacity:.7">Semua fungsi sekarang pakai index, tidak ada error base64 lagi</small></div></div>`;
+if(gid('kpiTop'))gid('kpiTop').innerHTML=`<div class="c" style="padding:10px"><div style="font-size:10px">OMSET</div><b>Rp${omset.toLocaleString()}</b></div><div class="c" style="padding:10px"><div style="font-size:10px">HPP TERJUAL</div><b>Rp${hppTerjual.toLocaleString()}</b></div><div class="c" style="padding:10px"><div style="font-size:10px">LABA KOTOR</div><b style="color:${labaKotor>=0?'#16a34a':'#dc2626'}">Rp${labaKotor.toLocaleString()}</b></div><div class="c" style="padding:10px"><div style="font-size:10px">LABA BERSIH</div><b style="color:${labaBersih>=0?'#16a34a':'#dc2626'}">Rp${labaBersih.toLocaleString()}</b></div>`;
+if(gid('labaBox'))gid('labaBox').innerHTML=`<b>Laba Kotor:</b> Omset Rp${omset.toLocaleString()} - HPP Terjual Rp${hppTerjual.toLocaleString()} = Rp${labaKotor.toLocaleString()}<br><b>Laba Bersih:</b> Laba Kotor Rp${labaKotor.toLocaleString()} + Masuk Rp${ma.toLocaleString()} - Biaya Rp${bi.toLocaleString()} = Rp${labaBersih.toLocaleString()}`;
+
+}catch(err){
+console.error('Render error:',err);
 }
-setInterval(()=>{document.getElementById('clock').textContent=new Date().toLocaleString('id-ID');},1000);
+}
+
+window.addEventListener('load',()=>{
+if(gid('btnSaveBahan'))gid('btnSaveBahan').addEventListener('click',saveBahan);
+if(gid('btnDelBahan'))gid('btnDelBahan').addEventListener('click',deleteBahan);
+if(gid('btnSaveJadi'))gid('btnSaveJadi').addEventListener('click',saveJadi);
+if(gid('btnSaveBom'))gid('btnSaveBom').addEventListener('click',saveBom);
+if(gid('btnProduksi'))gid('btnProduksi').addEventListener('click',doProduksi);
+if(gid('btnSaveWarung'))gid('btnSaveWarung').addEventListener('click',saveWarung);
+if(gid('btnJual'))gid('btnJual').addEventListener('click',doJual);
+if(gid('btnSaveKeu'))gid('btnSaveKeu').addEventListener('click',saveKeu);
+if(gid('jual_file'))gid('jual_file').addEventListener('change',function(){let f=this.files[0];if(!f)return;let r=new FileReader();r.onload=e=>{bJual=e.target.result;bJualName=f.name;gid('jual_fname').innerText=f.name;};r.readAsDataURL(f);});
+if(gid('keu_file'))gid('keu_file').addEventListener('change',function(){let f=this.files[0];if(!f)return;let r=new FileReader();r.onload=e=>{bKeu=e.target.result;bKeuName=f.name;gid('keu_fname').innerText=f.name;};r.readAsDataURL(f);});
 render();
-document.getElementById('bom_kode_jadi').addEventListener('change',()=>{let j=DB.jadi.find(x=>x.kode===document.getElementById('bom_kode_jadi').value);});
+});
+
+setInterval(()=>{if(gid('clock'))gid('clock').textContent=new Date().toLocaleString('id-ID');},1000);
 </script>
 </body>
 </html>
