@@ -9,26 +9,34 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;background:#05060f;color:#e9ecf5;line-height:1.6;overflow-x:hidden}
+body{font-family:'Inter',system-ui,sans-serif;background:#05060f;color:#e9ecf5;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 button{font-family:inherit;cursor:pointer}
+/* SMOOTH GLOBAL */
+*{transition-timing-function:cubic-bezier(.22,1,.36,1)}
+::selection{background:#7c3aed;color:#fff}
 
-/* GALAXY BG */
+/* GALAXY BG - LEBIH HALUS */
 .stars{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.stars::before{content:'';position:absolute;width:200%;height:200%;left:-50%;top:-50%;background-image:radial-gradient(1px 1px at 20px 30px,#fff 50%,transparent 51%),radial-gradient(1px 1px at 120px 90px,#cdd6ff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 200px 180px,#fff 50%,transparent 51%),radial-gradient(1px 1px at 320px 60px,#fff 50%,transparent 51%);background-size:420px 320px;animation:twinkle 4s ease-in-out infinite alternate;opacity:.8}
+.stars::before{content:'';position:absolute;width:200%;height:200%;left:-50%;top:-50%;background-image:radial-gradient(1px 1px at 20px 30px,#fff 50%,transparent 51%),radial-gradient(1px 1px at 120px 90px,#cdd6ff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 200px 180px,#fff 50%,transparent 51%),radial-gradient(1px 1px at 320px 60px,#fff 50%,transparent 51%);background-size:420px 320px;animation:twinkle 5s ease-in-out infinite alternate;opacity:.8;will-change:opacity}
 @keyframes twinkle{from{opacity:.55}to{opacity:.95}}
-.nebula{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(650px 420px at 15% 10%,rgba(124,58,237,.28),transparent 60%),radial-gradient(700px 500px at 85% 25%,rgba(14,165,233,.22),transparent 60%),radial-gradient(600px 500px at 50% 90%,rgba(219,39,119,.14),transparent 60%)}
-.planet{position:fixed;width:180px;height:180px;border-radius:50%;right:-60px;top:60px;z-index:0;opacity:.85;background:radial-gradient(circle at 30% 30%,#fde68a,#f59e0b 40%,#7c2d12 75%,#1c0a00);box-shadow:0 0 60px rgba(245,158,11,.3), inset -20px -20px 40px rgba(0,0,0,.5)}
+.nebula{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(650px 420px at 15% 10%,rgba(124,58,237,.26),transparent 60%),radial-gradient(700px 500px at 85% 25%,rgba(14,165,233,.20),transparent 60%),radial-gradient(600px 500px at 50% 90%,rgba(219,39,119,.13),transparent 60%);animation:nebulaFloat 12s ease-in-out infinite alternate}
+@keyframes nebulaFloat{from{transform:scale(1)}to{transform:scale(1.06)}}
+.planet{position:fixed;width:180px;height:180px;border-radius:50%;right:-60px;top:60px;z-index:0;opacity:.85;background:radial-gradient(circle at 30% 30%,#fde68a,#f59e0b 40%,#7c2d12 75%,#1c0a00);box-shadow:0 0 60px rgba(245,158,11,.3), inset -20px -20px 40px rgba(0,0,0,.5);animation:planetFloat 8s ease-in-out infinite alternate;will-change:transform}
+@keyframes planetFloat{from{transform:translateY(0)}to{transform:translateY(14px)}}
 .planet::after{content:'';position:absolute;left:-35px;top:52%;width:250px;height:18px;border:2px solid rgba(255,255,255,.22);border-radius:50%;transform:rotate(-12deg)}
 
-.btn{display:inline-block;background:#fff;color:#0b0d1a;padding:12px 20px;border-radius:999px;font-weight:700;font-size:14px;border:1px solid #fff;text-align:center}
-.btn:hover{background:#e9ecf5}
+.btn{display:inline-block;background:#fff;color:#0b0d1a;padding:12px 20px;border-radius:999px;font-weight:700;font-size:14px;border:1px solid #fff;text-align:center;transition:all .35s cubic-bezier(.22,1,.36,1);will-change:transform}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.25)}
+.btn:active{transform:translateY(0) scale(.97)}
 .btn-dark{background:#7c3aed;border-color:#7c3aed;color:#fff}
-.btn-dark:hover{background:#6d28d9}
+.btn-dark:hover{background:#6d28d9;box-shadow:0 12px 28px rgba(124,58,237,.45)}
 .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
 .wrap{max-width:1120px;margin:0 auto;padding:0 6%;position:relative;z-index:2}
-.hero{padding:56px 0 30px;display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+.hero{padding:56px 0 30px;display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;animation:fadeUp .8s cubic-bezier(.22,1,.36,1) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 .eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#c4b5fd;font-weight:700}
 .hero h1{font-family:'Playfair Display',serif;font-size:clamp(38px,5.2vw,58px);line-height:1.05;margin:14px 0 16px;font-weight:700}
 .hero h1 em{font-style:normal;color:#a78bfa}
@@ -37,25 +45,31 @@ button{font-family:inherit;cursor:pointer}
 .hero-cta{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
 .trust{display:flex;gap:18px;margin-top:26px;flex-wrap:wrap;font-size:13px;color:#aeb6c8}
 .trust b{color:#fff;font-size:18px;display:block;line-height:1.2}
-.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:18px;backdrop-filter:blur(8px)}
-.hero-card img{border-radius:14px;height:230px;width:100%;object-fit:cover}
+.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:18px;backdrop-filter:blur(10px);transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s}
+.hero-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.hero-card img{border-radius:14px;height:230px;width:100%;object-fit:cover;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.hero-card:hover img{transform:scale(1.02)}
 .hero-card h3{margin:14px 0 6px;font-size:18px}
 .hero-card p{font-size:14px;color:#b9c0d0}
 .price-tag{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:14px;border-top:1px dashed rgba(255,255,255,.2)}
 .price-tag b{font-size:20px}
 .price-tag span{font-size:12px;background:#facc15;color:#111;padding:5px 10px;border-radius:999px;font-weight:800}
-section{padding:50px 0}
+section{padding:50px 0;animation:fadeUp .7s cubic-bezier(.22,1,.36,1) both}
 .sec-title{font-size:28px;line-height:1.2;margin:8px 0 10px}
 .sec-sub{color:#b7bdcf;max-width:640px;font-size:15px}
 .kicker{font-size:12px;letter-spacing:2px;color:#a78bfa;font-weight:800;text-transform:uppercase}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
-.card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:20px}
+.card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:20px;transition:transform .45s cubic-bezier(.22,1,.36,1),background .45s,box-shadow .45s;will-change:transform}
+.card:hover{transform:translateY(-6px);background:rgba(255,255,255,.08);box-shadow:0 18px 34px rgba(0,0,0,.25)}
 .card h3{font-size:17px;margin:10px 0 6px}
 .card p{font-size:14px;color:#b9c0d0}
-.icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:rgba(124,58,237,.22)}
+.icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:rgba(124,58,237,.22);transition:transform .4s}
+.card:hover .icon{transform:scale(1.1) rotate(-4deg)}
 .paket{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
-.paket-card{background:#fff;color:#111;border-radius:20px;padding:24px;position:relative}
+.paket-card{background:#fff;color:#111;border-radius:20px;padding:24px;position:relative;transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s;will-change:transform}
+.paket-card:hover{transform:translateY(-6px);box-shadow:0 22px 40px rgba(0,0,0,.25)}
 .paket-card.featured{background:#111827;color:#fff;border:2px solid #a78bfa;transform:scale(1.02)}
+.paket-card.featured:hover{transform:scale(1.02) translateY(-6px)}
 .paket-card.featured .badge{position:absolute;top:-12px;left:20px;background:#facc15;color:#111;font-size:12px;font-weight:800;padding:6px 10px;border-radius:999px}
 .paket-card h3{font-size:18px}
 .paket-card .harga{font-size:28px;font-weight:800;margin:10px 0 4px}
@@ -68,32 +82,37 @@ section{padding:50px 0}
 .paket-card.featured .btn{background:#a78bfa;border-color:#a78bfa;color:#111}
 .note{font-size:13px;color:#9aa3b8;margin-top:12px;text-align:center}
 .porto{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
-.porto figure{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:18px;overflow:hidden}
-.porto img{height:180px;width:100%;object-fit:cover}
+.porto figure{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:18px;overflow:hidden;transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s}
+.porto figure:hover{transform:translateY(-5px);box-shadow:0 18px 32px rgba(0,0,0,.28)}
+.porto img{height:180px;width:100%;object-fit:cover;transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.porto figure:hover img{transform:scale(1.06)}
 .porto figcaption{padding:16px}
 .porto figcaption b{display:block}
 .porto figcaption span{font-size:13px;color:#aeb6c8}
 .testi{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
-.testi blockquote{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:20px;font-size:14px}
+.testi blockquote{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:20px;font-size:14px;transition:transform .45s}
+.testi blockquote:hover{transform:translateY(-4px)}
 .testi footer{margin-top:12px;font-weight:700;font-size:14px}
 .testi footer span{display:block;font-weight:400;color:#9aa3b8;font-size:12px}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
-.step{border:1px dashed rgba(255,255,255,.2);border-radius:16px;padding:18px}
+.step{border:1px dashed rgba(255,255,255,.2);border-radius:16px;padding:18px;transition:all .4s}
+.step:hover{background:rgba(255,255,255,.06);border-style:solid;border-color:#a78bfa;transform:translateY(-3px)}
 .step b{font-size:28px;color:#a78bfa}
 .step h4{margin:8px 0 6px}
 .step p{font-size:13px;color:#b9c0d0}
 footer{border-top:1px solid rgba(255,255,255,.1);padding:28px 0 40px;margin-top:20px;font-size:13px;color:#9aa3b8;position:relative;z-index:2}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
-/* POPUP */
-.modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.68);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:16px}
-.modal.open{display:flex}
-.modal-box{background:#fff;color:#111;width:min(680px,100%);border-radius:20px;overflow:hidden;max-height:92vh;overflow-y:auto;animation:pop .25s ease}
-@keyframes pop{from{transform:translateY(14px) scale(.98);opacity:0}to{transform:none;opacity:1}}
+/* POPUP SMOOTH */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.68);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .35s ease}
+.modal.open{opacity:1;pointer-events:auto}
+.modal-box{background:#fff;color:#111;width:min(680px,100%);border-radius:20px;overflow:hidden;max-height:92vh;overflow-y:auto;transform:translateY(18px) scale(.97);opacity:.6;transition:transform .45s cubic-bezier(.22,1,.36,1),opacity .35s;scroll-behavior:smooth}
+.modal.open .modal-box{transform:none;opacity:1}
 .modal-head{padding:20px 22px 0;display:flex;justify-content:space-between;align-items:start;gap:12px}
 .modal-head h3{font-size:22px;line-height:1.2}
 .modal-head p{font-size:13px;color:#6b7280;margin-top:4px}
-.close{width:36px;height:36px;min-width:36px;border-radius:50%;border:1px solid #e5e7eb;background:#fff;font-size:18px;cursor:pointer}
+.close{width:36px;height:36px;min-width:36px;border-radius:50%;border:1px solid #e5e7eb;background:#fff;font-size:18px;cursor:pointer;transition:all .3s}
+.close:hover{background:#111827;color:#fff;transform:rotate(90deg)}
 .modal-body{padding:18px 22px 22px}
 .modal-body img{border-radius:12px;height:200px;width:100%;object-fit:cover;margin-bottom:14px}
 .modal-body h4{margin:16px 0 8px}
@@ -105,42 +124,46 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .modal-cta{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
 .modal-cta .btn{flex:1}
 .wa{background:#16a34a;border-color:#16a34a;color:#fff}
+.wa:hover{background:#15803d;box-shadow:0 12px 24px rgba(22,163,74,.35)}
 
 /* WEBSHOP */
 .shop-tabs{display:flex;gap:8px;margin:14px 0;flex-wrap:wrap}
-.shop-tabs button{padding:8px 14px;border-radius:999px;border:1px solid #e5e7eb;background:#fff;font-size:13px;font-weight:600}
-.shop-tabs button.active{background:#111827;color:#fff;border-color:#111827}
+.shop-tabs button{padding:8px 14px;border-radius:999px;border:1px solid #e5e7eb;background:#fff;font-size:13px;font-weight:600;transition:all .3s cubic-bezier(.22,1,.36,1)}
+.shop-tabs button.active{background:#111827;color:#fff;border-color:#111827;transform:scale(1.03)}
 .shop-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.shop-item{border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;background:#fff;position:relative}
-.shop-item img{height:120px;width:100%;object-fit:cover;margin:0;border-radius:0}
+.shop-item{border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;background:#fff;position:relative;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s;animation:fadeUp .45s cubic-bezier(.22,1,.36,1) both}
+.shop-item:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(0,0,0,.12)}
+.shop-item img{height:120px;width:100%;object-fit:cover;margin:0;border-radius:0;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.shop-item:hover img{transform:scale(1.05)}
 .shop-item .info{padding:12px}
 .shop-item b{font-size:14px;display:block;line-height:1.3}
 .shop-item small{font-size:12px;color:#6b7280}
 .shop-item .row{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
 .shop-item .price{font-weight:800}
-.add-btn{background:#111827;color:#fff;border:none;padding:7px 12px;border-radius:999px;font-size:12px;font-weight:700;transition:.2s}
-.add-btn:hover{background:#7c3aed}
+.add-btn{background:#111827;color:#fff;border:none;padding:7px 12px;border-radius:999px;font-size:12px;font-weight:700;transition:all .3s cubic-bezier(.22,1,.36,1)}
+.add-btn:hover{background:#7c3aed;transform:scale(1.06)}
 .add-btn:active{transform:scale(.92)}
-.cart-box{background:#f9fafb;border:1px dashed #d1d5db;border-radius:14px;padding:14px;margin-top:14px;position:relative;transition:.3s}
-.cart-box.hit{border-color:#16a34a;background:#f0fdf4;animation:cartShake .45s ease}
-@keyframes cartShake{0%{transform:translateX(0)}25%{transform:translateX(-4px) rotate(-1deg)}50%{transform:translateX(4px) rotate(1deg)}75%{transform:translateX(-2px)}100%{transform:translateX(0)}}
+.cart-box{background:#f9fafb;border:1px dashed #d1d5db;border-radius:14px;padding:14px;margin-top:14px;position:relative;transition:all .4s cubic-bezier(.22,1,.36,1)}
+.cart-box.hit{border-color:#16a34a;background:#f0fdf4;animation:cartShake .5s cubic-bezier(.22,1,.36,1)}
+@keyframes cartShake{0%{transform:translateX(0) scale(1)}25%{transform:translateX(-3px) scale(1.01)}50%{transform:translateX(3px) scale(1.01)}75%{transform:translateX(-1px)}100%{transform:translateX(0) scale(1)}}
 .cart-box h5{font-size:14px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:8px}
-.cart-badge{background:#111827;color:#fff;min-width:28px;height:28px;border-radius:999px;display:grid;place-items:center;font-size:13px;font-weight:800;padding:0 7px;transition:.2s}
-.cart-badge.pop{animation:popBadge .4s ease}
-@keyframes popBadge{0%{transform:scale(1)}40%{transform:scale(1.5);background:#16a34a}100%{transform:scale(1)}}
-.cart-line{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid #eee;animation:fadeIn .3s ease}
-@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.cart-badge{background:#111827;color:#fff;min-width:28px;height:28px;border-radius:999px;display:grid;place-items:center;font-size:13px;font-weight:800;padding:0 7px;transition:transform .3s}
+.cart-badge.pop{animation:popBadge .5s cubic-bezier(.22,1,.36,1)}
+@keyframes popBadge{0%{transform:scale(1)}40%{transform:scale(1.45);background:#16a34a}100%{transform:scale(1)}}
+.cart-line{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid #eee;animation:fadeUp .35s cubic-bezier(.22,1,.36,1) both}
 .cart-total{display:flex;justify-content:space-between;font-weight:800;margin-top:10px}
 .shop-note{font-size:12px;color:#6b7280;margin-top:8px;line-height:1.5}
 
-/* --- ANIMASI BARANG TERBANG KE KERANJANG --- */
-.fly-item{position:fixed;z-index:9999;pointer-events:none;border-radius:12px;object-fit:cover;box-shadow:0 10px 25px rgba(0,0,0,.35);transition:all .75s cubic-bezier(.3,.7,.4,1);will-change:transform,left,top,width,height,opacity}
-.fly-badge{position:fixed;z-index:10000;pointer-events:none;background:#16a34a;color:#fff;font-size:12px;font-weight:800;padding:5px 10px;border-radius:999px;box-shadow:0 5px 15px rgba(22,163,74,.4);animation:floatUp .9s ease forwards}
-@keyframes floatUp{0%{opacity:1;transform:translateY(0) scale(.9)}100%{opacity:0;transform:translateY(-42px) scale(1.05)}}
-.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#111827;color:#fff;padding:11px 18px;border-radius:999px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:10001;box-shadow:0 10px 30px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* ANIMASI BARANG TERBANG - LEBIH SMOOTH */
+.fly-item{position:fixed;z-index:9999;pointer-events:none;border-radius:12px;object-fit:cover;box-shadow:0 14px 30px rgba(0,0,0,.35);transition:all .85s cubic-bezier(.22,1,.36,1);will-change:transform,left,top,width,height,opacity}
+.fly-badge{position:fixed;z-index:10000;pointer-events:none;background:#16a34a;color:#fff;font-size:12px;font-weight:800;padding:5px 10px;border-radius:999px;box-shadow:0 6px 18px rgba(22,163,74,.4);animation:floatUp 1s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes floatUp{0%{opacity:1;transform:translateY(0) scale(.9)}100%{opacity:0;transform:translateY(-46px) scale(1.05)}}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px) scale(.96);background:#111827;color:#fff;padding:11px 18px;border-radius:999px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:all .4s cubic-bezier(.22,1,.36,1);z-index:10001;box-shadow:0 14px 30px rgba(0,0,0,.35);display:flex;gap:8px;align-items:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}
+.qty-btn{width:26px;height:26px;border-radius:50%;border:1px solid #e5e7eb;background:#fff;font-size:14px;line-height:1;transition:all .25s}
+.qty-btn:hover{background:#111827;color:#fff;transform:scale(1.1)}
 
-@media(max-width:860px){.hero,.grid3,.paket,.porto,.testi,.steps{grid-template-columns:1fr}.planet{display:none}.paket-card.featured{transform:none}.specs{grid-template-columns:1fr 1fr}.shop-grid{grid-template-columns:1fr}}
+@media(max-width:860px){.hero,.grid3,.paket,.porto,.testi,.steps{grid-template-columns:1fr}.planet{display:none}.paket-card.featured{transform:none}.paket-card.featured:hover{transform:translateY(-6px)}.specs{grid-template-columns:1fr 1fr}.shop-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -154,7 +177,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <p>Kami bantu UMKM, toko, sekolah, dan jasa punya website yang <b>rapi, cepat dibuka di HP, dan gampang ditemukan di Google.</b> Kamu tidak perlu paham teknis, kami yang urus sampai jadi.</p>
       <div class="hero-cta">
         <a class="btn btn-dark" href="#paket">Lihat Harga & Paket →</a>
-        <a class="btn btn-ghost" href="https://wa.me/62812XXXXXXX?text=Halo%2C%20boleh%20konsultasi%20gratis%20dulu%20nggak%3F" target="_blank">Konsultasi Gratis</a>
+        <a class="btn btn-ghost" href="https://wa.me/6285190677712?text=Halo%2C%20boleh%20konsultasi%20gratis%20dulu%20nggak%3F" target="_blank">Konsultasi Gratis • 0851-9067-7712</a>
       </div>
       <div class="trust">
         <div><b>120+</b>Website selesai</div>
@@ -169,7 +192,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <h3>Kenapa konsepnya galaksi?</h3>
       <p>Karena setiap bisnis itu seperti bintang. Tugas kami bikin bisnismu kelihatan paling terang di antara yang lain, pas orang cari di Google.</p>
       <div class="price-tag"><span>Mulai dari</span><b>Rp 750rb</b><span>Promo Nov</span></div>
-      <p style="font-size:12px;margin-top:8px;color:#9aa3b8">Tanpa biaya tersembunyi. Harga sudah termasuk domain & hosting 1 tahun untuk paket Bisnis.</p>
+      <p style="font-size:12px;margin-top:8px;color:#9aa3b8">Tanpa biaya tersembunyi. Harga sudah termasuk domain & hosting 1 tahun untuk paket Bisnis. Chat WA: 0851-9067-7712</p>
     </div>
   </header>
 
@@ -178,239 +201,4 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <h2 class="sec-title">Bukan sekadar website, tapi alat jualan.</h2>
     <p class="sec-sub">Banyak website bagus tapi sepi. Kami fokus ke yang penting: gampang dibuka, jelas isinya, dan pengunjung jadi chat / beli.</p>
     <div class="grid3">
-      <div class="card"><div class="icon">🛍️</div><h3>Toko Online / Katalog</h3><p>Buat jualan di web sendiri. Ada katalog, tombol WA, ongkir, dan pembayaran transfer / QRIS.</p><button class="btn btn-dark" style="margin-top:12px;padding:9px 14px;font-size:13px" onclick="openShop()">Lihat Contoh Toko →</button></div>
-      <div class="card"><div class="icon">🏢</div><h3>Company Profile</h3><p>Buat perusahaan / sekolah / yayasan kelihatan profesional dan dipercaya klien.</p></div>
-      <div class="card"><div class="icon">📍</div><h3>Landing Page Promo</h3><p>Satu halaman fokus untuk satu promo. Cocok buat iklan Instagram / TikTok biar tidak boncos.</p></div>
-    </div>
-  </section>
-
-  <section id="paket">
-    <div class="kicker">Harga jujur</div>
-    <h2 class="sec-title">Pilih paket yang paling masuk akal.</h2>
-    <p class="sec-sub">Klik <b>Lihat Detail</b> untuk baca isi paketnya sampai habis. Kalau masih bingung, chat saja, kami bantu pilihkan.</p>
-    <div class="paket">
-      <article class="paket-card"><h3>🌑 Paket Orbit</h3><div class="harga">Rp 750rb <small>/ sekali bayar</small></div><p style="font-size:13px;color:#6b7280">Buat yang baru mulai, butuh website sederhana tapi rapi.</p><ul><li>1 Halaman Landing Page</li><li>Domain + Hosting 1 thn</li><li>Tombol WhatsApp</li><li>Desain Mobile Friendly</li><li>Jadi 3-4 hari</li></ul><button class="btn btn-dark" onclick="openModal('orbit')">Lihat Detail →</button></article>
-      <article class="paket-card featured"><span class="badge">PALING BANYAK DIPESAN</span><h3>🌌 Paket Galaksi</h3><div class="harga">Rp 1,9jt <small>/ sekali bayar</small></div><p style="font-size:13px;color:#cbd5e1">Buat UMKM yang serius jualan online dan mau kelihatan profesional.</p><ul><li>5-7 Halaman + Katalog Produk</li><li>Domain .com + Hosting 1 thn</li><li>SEO Dasar Google</li><li>Integrasi WA + Maps + IG</li><li>Admin bisa edit sendiri</li><li>Jadi 5-7 hari</li></ul><button class="btn" onclick="openModal('galaksi')">Lihat Detail →</button></article>
-      <article class="paket-card"><h3>🚀 Paket Supernova</h3><div class="harga">Rp 4,5jt <small>/ sekali bayar</small></div><p style="font-size:13px;color:#6b7280">Buat toko online / perusahaan yang butuh fitur lengkap.</p><ul><li>Toko Online + Payment QRIS</li><li>Blog + SEO Lanjutan</li><li>Domain .com + Hosting 1 thn</li><li>Dashboard Admin Lengkap</li><li>Pendampingan 30 hari</li></ul><button class="btn btn-dark" onclick="openModal('supernova')">Lihat Detail →</button></article>
-    </div>
-    <p class="note">Semua paket bisa cicil 2x. DP 50% untuk mulai pengerjaan, pelunasan setelah website jadi dan kamu cek sendiri.</p>
-    <div style="text-align:center;margin-top:14px"><button class="btn" onclick="openShop()">🛍️ Lihat Contoh Webshop Online di Pop-up →</button></div>
-  </section>
-
-  <section id="portofolio">
-    <div class="kicker">Hasil kerja nyata</div>
-    <h2 class="sec-title">Beberapa website yang sudah kami kerjakan.</h2>
-    <div class="porto">
-      <figure><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="Website resto"><figcaption><b>Resto & Kafe — Sawojajar</b><span>Menu online + reservasi WA • Naik 2x order dari Google</span></figcaption></figure>
-      <figure><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" alt="Website toko"><figcaption><b>Toko Baju — Blimbing</b><span>Katalog 120 produk + checkout WA</span></figcaption></figure>
-      <figure><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80" alt="Website sekolah"><figcaption><b>Sekolah — Singosari</b><span>Profil, PPDB online, galeri kegiatan</span></figcaption></figure>
-    </div>
-  </section>
-
-  <section id="testimoni">
-    <div class="kicker">Kata mereka</div>
-    <h2 class="sec-title">Bukan kata kami, kata klien.</h2>
-    <div class="testi">
-      <blockquote>“Awalnya saya kira bikin website itu ribet dan mahal. Ternyata dibantu semua, dari foto produk sampai tulisan. Sekarang customer banyak yang datang dari Google.”<footer>Rina — Pemilik Toko Kue, Blimbing<span>Paket Galaksi • Website selesai 6 hari</span></footer></blockquote>
-      <blockquote>“Enak diajak komunikasi, fast respon. Revisi juga dilayani, tidak ditinggal setelah bayar. Website sekolah kami sekarang kelihatan jauh lebih rapi.”<footer>Pak Budi — Admin Sekolah, Singosari<span>Paket Galaksi • 2025</span></footer></blockquote>
-    </div>
-  </section>
-
-  <section id="cara">
-    <div class="kicker">Cara pesan — gampang banget</div>
-    <h2 class="sec-title">4 langkah, website langsung jalan.</h2>
-    <div class="steps">
-      <div class="step"><b>01</b><h4>Chat & Cerita</h4><p>Ceritakan usahamu lewat WA. Kami bantu pilihkan paket yang pas, tidak maksa.</p></div>
-      <div class="step"><b>02</b><h4>DP & Kumpul Materi</h4><p>Kirim logo, foto, harga, dan alamat. Kalau belum punya, kami bantu buatkan.</p></div>
-      <div class="step"><b>03</b><h4>Kami Kerjakan</h4><p>Kamu bisa lihat progresnya. Revisi gratis sampai kamu cocok.</p></div>
-      <div class="step"><b>04</b><h4>Jadi & Serah Terima</h4><p>Website online, kami ajari cara editnya. Garansi error 30 hari.</p></div>
-    </div>
-    <div style="text-align:center;margin-top:28px"><a class="btn btn-dark" href="https://wa.me/62812XXXXXXX?text=Halo%2C%20saya%20mau%20tanya%20paket%20website" target="_blank">Tanya Lewat WA Sekarang →</a><p style="font-size:13px;color:#9aa3b8;margin-top:10px">Malang, Jawa Timur — buka Senin-Sabtu 09.00-17.00</p></div>
-  </section>
-</div>
-
-<footer><div class="wrap"><span>© 2026 — Jasa Pembuatan Website • Malang, Jawa Timur.</span><span>IG & WA tersedia di tombol chat</span></div></footer>
-
-<!-- POPUP DETAIL PAKET -->
-<div class="modal" id="modal" onclick="if(event.target===this) closeModal()">
-  <div class="modal-box">
-    <div class="modal-head"><div><h3 id="mTitle">Detail Paket</h3><p id="mSub"></p></div><button class="close" onclick="closeModal()">×</button></div>
-    <div class="modal-body" id="mBody"></div>
-  </div>
-</div>
-
-<!-- POPUP CONTOH WEBSHOP ONLINE + ANIMASI -->
-<div class="modal" id="shopModal" onclick="if(event.target===this) closeShop()">
-  <div class="modal-box" style="width:min(720px,100%)">
-    <div class="modal-head"><div><h3>🛍️ Contoh Webshop Online</h3><p>Ini contoh tampilan toko online yang akan kamu dapat di Paket Galaksi & Supernova. Coba klik + Keranjang, barangnya akan terbang ke keranjang.</p></div><button class="close" onclick="closeShop()">×</button></div>
-    <div class="modal-body">
-      <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=80" alt="Contoh toko">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
-        <div><b style="font-size:18px">Toko Contoh — Fashion & Aksesoris</b><div style="font-size:13px;color:#6b7280">Malang • ⭐ 4.9 (312 ulasan) • Buka 09.00-21.00</div></div>
-        <span style="background:#dcfce7;color:#166534;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800">● READY STOK</span>
-      </div>
-
-      <div class="shop-tabs" id="shopTabs">
-        <button class="active" onclick="filterShop('all',this)">Semua</button>
-        <button onclick="filterShop('baju',this)">Baju</button>
-        <button onclick="filterShop('tas',this)">Tas</button>
-        <button onclick="filterShop('aksesoris',this)">Aksesoris</button>
-      </div>
-
-      <div class="shop-grid" id="shopGrid"></div>
-
-      <div class="cart-box" id="cartBox">
-        <h5>🧺 Keranjang Belanja — <span class="cart-badge" id="cartBadge">0</span> <span id="cartCount" style="font-weight:400;font-size:12px;color:#6b7280">0 produk</span></h5>
-        <div id="cartItems"><p style="font-size:13px;color:#6b7280">Keranjang masih kosong. Coba tambahkan 1 produk di atas.</p></div>
-        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
-          <label style="font-size:13px;flex:1;min-width:140px">Kecamatan:<br><select id="ongkir" onchange="renderCart()" style="width:100%;padding:9px;border-radius:10px;border:1px solid #e5e7eb;margin-top:4px"><option value="8000">Blimbing — Rp 8.000</option><option value="10000">Sawojajar — Rp 10.000</option><option value="12000">Tlogomas — Rp 12.000</option><option value="15000">Singosari — Rp 15.000</option></select></label>
-          <label style="font-size:13px;flex:1;min-width:140px">Kode Promo:<br><input id="promo" placeholder="Coba: GALAKSI10" oninput="renderCart()" style="width:100%;padding:9px;border-radius:10px;border:1px solid #e5e7eb;margin-top:4px"></label>
-        </div>
-        <div class="cart-total"><span>Total</span><span id="cartTotal">Rp 0</span></div>
-        <p class="shop-note">Di website asli, total sudah termasuk ongkir & diskon otomatis. Pembayaran bisa Transfer / QRIS. Di Paket Supernova, stok berkurang otomatis setelah order.</p>
-        <div class="modal-cta">
-          <a class="btn wa" id="checkoutBtn" target="_blank" href="#">Checkout via WhatsApp →</a>
-          <button class="btn" style="background:#111827;color:#fff;border-color:#111827" onclick="clearCart()">Kosongkan</button>
-        </div>
-      </div>
-
-      <h4>Kenapa contoh ini penting?</h4>
-      <ul>
-        <li><b>Pelanggan tidak perlu download aplikasi.</b> Buka link, pilih produk, langsung checkout WA.</li>
-        <li><b>Semua produk bisa kamu edit sendiri</b> — harga, foto, stok, deskripsi — tanpa harus bisa coding.</li>
-        <li><b>Terhubung ke Google Maps & Instagram</b> supaya orang gampang menemukan tokomu.</li>
-        <li><b>Di versi Supernova:</b> ada keranjang permanen, pembayaran QRIS, dan rekap order otomatis di dashboard admin.</li>
-      </ul>
-      <div class="modal-cta"><a class="btn btn-dark" target="_blank" href="https://wa.me/62812XXXXXXX?text=Halo%2C%20saya%20lihat%20contoh%20webshop-nya.%20Saya%20mau%20dibuatkan%20toko%20online%20seperti%20itu">Buatkan Toko Seperti Ini →</a><button class="btn" onclick="closeShop()">Tutup</button></div>
-    </div>
-  </div>
-</div>
-
-<div class="toast" id="toast">✅ Ditambahkan ke keranjang</div>
-
-<script>
-const DATA = {
-  orbit:{title:'🌑 Paket Orbit — Rp 750rb',sub:'Cocok untuk usaha baru / personal. Sederhana, cepat, langsung bisa dipakai jualan.',img:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80',desc:'Paket ini untuk kamu yang belum pernah punya website sama sekali. Fokusnya satu: orang yang lihat langsung paham kamu jualan apa, dan langsung bisa chat WA.',specs:[['3-4 Hari','Lama Pengerjaan'],['1 Halaman','Landing Page'],['2x','Revisi Gratis']],list:['Landing page 1 halaman (Profil, Produk/Jasa, Testimoni, Kontak)','Domain + hosting 1 tahun (kami yang uruskan)','Tombol WhatsApp melayang + link Instagram & Google Maps','Desain menyesuaikan warna & logo usahamu','Bisa dibuka cepat di HP & laptop','Tutorial video cara edit tulisan & foto sendiri'],cocok:'Cocok untuk: jasa laundry, barbershop, freelancer, katering rumahan, dan usaha baru.',tidak:'Tidak termasuk: katalog banyak produk dan toko online dengan keranjang. Kalau butuh itu, ambil Paket Galaksi.',wa:'Halo, saya tertarik Paket Orbit Rp 750rb. Boleh info cara pesannya?'},
-  galaksi:{title:'🌌 Paket Galaksi — Rp 1,9jt',sub:'Paket paling sering dipesan UMKM. Lengkap, profesional, dan gampang dirawat.',img:'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80',desc:'Ini paket tengah yang paling seimbang antara harga dan hasil. Kamu dapat website 5-7 halaman lengkap dengan katalog produk, SEO dasar supaya muncul di Google, dan admin yang bisa kamu edit sendiri.',specs:[['5-7 Hari','Lama Pengerjaan'],['5-7 Halaman','Website Lengkap'],['3x','Revisi Gratis']],list:['Halaman: Beranda, Tentang Kami, Produk / Layanan, Galeri, Testimoni, Blog, Kontak','Katalog produk sampai 50 produk + tombol order via WA','Domain .com + hosting 1 tahun + SSL (gembok aman)','SEO dasar: judul Google, deskripsi, Google Maps & Google Bisnisku','Integrasi WhatsApp, Instagram, TikTok, dan Google Maps','Desain custom, bukan template pasaran','Pelatihan edit website via video call 1x (30 menit)','Garansi error teknis 30 hari'],cocok:'Cocok untuk: toko baju, toko kue, resto, laundry, salon, travel, bimbel, sekolah, dan klinik.',tidak:'Tidak termasuk: pembayaran otomatis QRIS dan stok real-time. Itu ada di Paket Supernova.',wa:'Halo, saya tertarik Paket Galaksi Rp 1,9jt. Boleh konsultasi dulu?'},
-  supernova:{title:'🚀 Paket Supernova — Rp 4,5jt',sub:'Untuk bisnis yang sudah besar dan butuh website yang kerja full otomatis.',img:'https://images.unsplash.com/photo-1531297484001-80022131f5a9?w=900&q=80',desc:'Paket ini untuk kamu yang sudah capek balas chat satu-satu. Website sudah bisa terima order, hitung ongkir, terima pembayaran QRIS, dan rekap order masuk.',specs:[['10-14 Hari','Lama Pengerjaan'],['Toko Online','+ Blog SEO'],['30 Hari','Pendampingan']],list:['Semua fitur Paket Galaksi','Toko online: keranjang, ongkir otomatis, kupon diskon','Pembayaran QRIS + transfer bank','Dashboard admin: kelola produk, order, dan artikel','Blog + SEO lanjutan (10 artikel awal kami bantu)','Desain premium + animasi galaksi custom','Pendampingan 30 hari via WA grup khusus'],cocok:'Cocok untuk: toko online, distributor, brand fashion, perusahaan, dan sekolah / yayasan besar.',tidak:'Tidak termasuk: biaya iklan Google / Meta Ads dan foto produk profesional.',wa:'Halo, saya tertarik Paket Supernova Rp 4,5jt. Boleh minta contoh demo tokonya?'}
-};
-function openModal(key){const d=DATA[key];document.getElementById('mTitle').innerText=d.title;document.getElementById('mSub').innerText=d.sub;document.getElementById('mBody').innerHTML=`<img src="${d.img}"><p>${d.desc}</p><div class="specs">${d.specs.map(s=>`<div><b>${s[0]}</b><span>${s[1]}</span></div>`).join('')}</div><h4>Apa saja yang kamu dapat?</h4><ul>${d.list.map(x=>`<li>${x}</li>`).join('')}</ul><h4>Cocok untuk siapa?</h4><p style="font-size:14px;color:#374151">${d.cocok}</p><h4>Yang perlu kamu tahu</h4><p style="font-size:14px;color:#374151">${d.tidak}</p><div style="text-align:center;margin:14px 0"><button class="btn btn-dark" onclick="closeModal();openShop()">🛍️ Lihat Contoh Webshop-nya Dulu →</button></div><div class="modal-cta"><a class="btn wa" target="_blank" href="https://wa.me/62812XXXXXXX?text=${encodeURIComponent(d.wa)}">Chat WA & Pesan Paket Ini</a><button class="btn" onclick="closeModal()">Tutup Dulu</button></div><p style="font-size:12px;color:#9ca3af;margin-top:10px;text-align:center">Bisa cicil 2x • DP 50% mulai pengerjaan • Pelunasan setelah kamu cek & setuju</p>`;document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden';}
-function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
-function openShop(){document.getElementById('shopModal').classList.add('open');document.body.style.overflow='hidden';renderShop('all');renderCart();}
-function closeShop(){document.getElementById('shopModal').classList.remove('open');document.body.style.overflow='';}
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeShop();}});
-
-const PRODUCTS=[
-  {id:1,name:'Kaos Oversize - Hitam Galaksi',cat:'baju',price:89000,img:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80',tag:'Best Seller'},
-  {id:2,name:'Hoodie Nebula - Ungu',cat:'baju',price:149000,img:'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80',tag:'Stok 12'},
-  {id:3,name:'Tote Bag Orbit - Kanvas',cat:'tas',price:65000,img:'https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?w=600&q=80',tag:'Baru'},
-  {id:4,name:'Tas Selempang Mini - Cream',cat:'tas',price:99000,img:'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80',tag:'Stok 8'},
-  {id:5,name:'Topi Galaxy - Hitam',cat:'aksesoris',price:55000,img:'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=600&q=80',tag:'Best Seller'},
-  {id:6,name:'Gelang Bintang - Silver',cat:'aksesoris',price:35000,img:'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80',tag:'Baru'},
-];
-let cart={};
-let currentCat='all';
-function filterShop(cat,btn){currentCat=cat;document.querySelectorAll('#shopTabs button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');renderShop(cat);}
-function renderShop(cat){
-  const list = PRODUCTS.filter(p=>cat==='all'||p.cat===cat);
-  document.getElementById('shopGrid').innerHTML = list.map(p=>`
-    <div class="shop-item" data-id="${p.id}"><img src="${p.img}" alt="${p.name}"><div class="info"><small>${p.tag} • ${p.cat}</small><b>${p.name}</b><div class="row"><span class="price">Rp ${p.price.toLocaleString('id-ID')}</span><button class="add-btn" onclick="addToCart(${p.id}, this, event)">+ Keranjang</button></div></div></div>
-  `).join('');
-}
-
-// --- ANIMASI BARANG TERBANG KE KERANJANG ---
-function addToCart(id, btn, ev){
-  const product = PRODUCTS.find(p=>p.id===id);
-  // 1. Cari posisi gambar produk & posisi keranjang
-  const itemEl = btn.closest('.shop-item');
-  const imgEl = itemEl ? itemEl.querySelector('img') : null;
-  const cartBox = document.getElementById('cartBox');
-  if(imgEl && cartBox){
-    const start = imgEl.getBoundingClientRect();
-    const end = cartBox.getBoundingClientRect();
-    // 2. Buat clone foto yang akan terbang
-    const fly = document.createElement('img');
-    fly.src = product.img;
-    fly.className = 'fly-item';
-    fly.style.left = start.left + 'px';
-    fly.style.top = start.top + 'px';
-    fly.style.width = start.width + 'px';
-    fly.style.height = start.height + 'px';
-    document.body.appendChild(fly);
-    // 3. Paksa reflow lalu terbangkan ke keranjang
-    requestAnimationFrame(()=>{
-      requestAnimationFrame(()=>{
-        fly.style.left = (end.left + end.width/2 - 25) + 'px';
-        fly.style.top = (end.top + 30) + 'px';
-        fly.style.width = '50px';
-        fly.style.height = '50px';
-        fly.style.borderRadius = '50%';
-        fly.style.opacity = '0.4';
-        fly.style.transform = 'rotate(360deg) scale(0.6)';
-      });
-    });
-    // 4. Setelah sampai, hapus + goyangkan keranjang + pop badge
-    setTimeout(()=>{
-      fly.remove();
-      cartBox.classList.remove('hit');
-      void cartBox.offsetWidth; // restart animasi
-      cartBox.classList.add('hit');
-      const badge = document.getElementById('cartBadge');
-      badge.classList.remove('pop'); void badge.offsetWidth; badge.classList.add('pop');
-      showToast('✅ ' + product.name + ' masuk keranjang');
-      // efek +1 melayang di atas keranjang
-      const plus = document.createElement('div');
-      plus.className = 'fly-badge';
-      plus.textContent = '+1';
-      plus.style.left = (end.left + end.width/2 - 10) + 'px';
-      plus.style.top = (end.top + 10) + 'px';
-      document.body.appendChild(plus);
-      setTimeout(()=>plus.remove(), 900);
-    }, 780);
-  }
-  // 5. Update data keranjang sedikit telat biar pas dengan animasi
-  setTimeout(()=>{
-    cart[id]=(cart[id]||0)+1;
-    renderCart();
-  }, 500);
-}
-
-function showToast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(t._timer);
-  t._timer = setTimeout(()=>t.classList.remove('show'), 2200);
-}
-
-function clearCart(){cart={};document.getElementById('promo').value='';renderCart();}
-function formatRp(n){return 'Rp '+n.toLocaleString('id-ID');}
-function renderCart(){
-  const ids=Object.keys(cart);
-  const count=ids.reduce((a,k)=>a+cart[k],0);
-  document.getElementById('cartCount').innerText=count+' produk';
-  document.getElementById('cartBadge').innerText=count;
-  let subtotal=0; let html='';
-  if(ids.length===0){html='<p style="font-size:13px;color:#6b7280">Keranjang masih kosong. Coba tambahkan 1 produk di atas.</p>';}
-  else{
-    html=ids.map(k=>{
-      const p=PRODUCTS.find(x=>x.id==k); const total=p.price*cart[k]; subtotal+=total;
-      return `<div class="cart-line"><span>${p.name} × ${cart[k]}</span><span>${formatRp(total)}</span></div>`;
-    }).join('');
-  }
-  const ongkir = ids.length? parseInt(document.getElementById('ongkir').value):0;
-  let disc=0; const promo=document.getElementById('promo').value.trim().toUpperCase();
-  if(promo==='GALAKSI10' && subtotal>0) disc=Math.round(subtotal*0.10);
-  const total=subtotal+ongkir-disc;
-  if(ids.length){
-    html+=`<div class="cart-line"><span>Subtotal</span><span>${formatRp(subtotal)}</span></div><div class="cart-line"><span>Ongkir</span><span>${formatRp(ongkir)}</span></div>${disc?`<div class="cart-line" style="color:#16a34a"><span>Diskon GALAKSI10 (-10%)</span><span>- ${formatRp(disc)}</span></div>`:''}`;
-  }
-  document.getElementById('cartItems').innerHTML=html;
-  document.getElementById('cartTotal').innerText=formatRp(total);
-  const pesan = ids.length ? `Halo, saya mau order:\n${ids.map(k=>{const p=PRODUCTS.find(x=>x.id==k);return `- ${p.name} x ${cart[k]} = ${formatRp(p.price*cart[k])}`}).join('\n')}\nOngkir: ${formatRp(ongkir)}${disc?`\nDiskon: -${formatRp(disc)}`:''}\nTotal: ${formatRp(total)}\n\nNama:\nAlamat:` : 'Halo, saya mau tanya tentang toko online ini';
-  document.getElementById('checkoutBtn').href='https://wa.me/62812XXXXXXX?text='+encodeURIComponent(pesan);
-}
-renderShop('all');
-</script>
-</body>
-</html>
+      <div class="card"><div class="icon">🛍️</div><h3>Toko Online / Katalog</h3><p>Buat jualan di web sendiri. Ada katalog, tombol WA, ongkir, dan pembayaran transfer / QRIS.</p
