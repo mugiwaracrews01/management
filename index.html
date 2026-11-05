@@ -3,205 +3,315 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEXA-BOT | Robotic Future</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Galaksi Web Studio - Jasa Pembuatan Website di Malang</title>
+<meta name="description" content="Jasa pembuatan website untuk UMKM, toko online, sekolah, dan perusahaan di Malang. Cepat, rapi, dan bisa diurus sampai jadi.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--cyan:#00f0ff;--blue:#0066ff;--dark:#050a14;--card:#0a1428;--neon:#00ff9d}
-body{background:var(--dark);color:#e8f6ff;font-family:'Rajdhani',sans-serif;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;background:
-linear-gradient(rgba(0,240,255,.05) 1px,transparent 1px),
-linear-gradient(90deg,rgba(0,240,255,.05) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:#05060f;color:#e9ecf5;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:18px 5%;background:rgba(5,10,20,.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,240,255,.25)}
-.logo{font-family:'Orbitron';font-weight:900;font-size:22px;letter-spacing:2px}
-.logo span{color:var(--cyan);text-shadow:0 0 15px var(--cyan)}
-nav ul{display:flex;gap:28px;list-style:none}
-nav a{color:#cfefff;text-decoration:none;font-weight:600;letter-spacing:1px;position:relative;padding:5px 0}
-nav a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--cyan);box-shadow:0 0 10px var(--cyan);transition:.35s}
-nav a:hover::after{width:100%}
-.btn{font-family:'Orbitron';background:var(--cyan);color:#001018;border:none;padding:12px 22px;font-weight:700;cursor:pointer;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);transition:.3s}
-.btn:hover{background:#fff;box-shadow:0 0 25px var(--cyan);transform:translateY(-2px)}
+/* --- LANGIT GALAXY --- */
+.stars{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.stars::before{content:'';position:absolute;width:200%;height:200%;left:-50%;top:-50%;
+background-image:radial-gradient(1px 1px at 20px 30px,#fff 50%,transparent 51%),radial-gradient(1px 1px at 120px 90px,#cdd6ff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 200px 180px,#fff 50%,transparent 51%),radial-gradient(1px 1px at 320px 60px,#fff 50%,transparent 51%);
+background-size:420px 320px;animation:twinkle 4s ease-in-out infinite alternate;opacity:.8}
+@keyframes twinkle{from{opacity:.55}to{opacity:.95}}
+.nebula{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(650px 420px at 15% 10%,rgba(124,58,237,.28),transparent 60%),radial-gradient(700px 500px at 85% 25%,rgba(14,165,233,.22),transparent 60%),radial-gradient(600px 500px at 50% 90%,rgba(219,39,119,.14),transparent 60%)}
+.planet{position:fixed;width:220px;height:220px;border-radius:50%;right:-70px;top:90px;z-index:0;opacity:.9;background:radial-gradient(circle at 30% 30%,#fde68a,#f59e0b 40%,#7c2d12 75%,#1c0a00);box-shadow:0 0 60px rgba(245,158,11,.35), inset -20px -20px 40px rgba(0,0,0,.5)}
+.planet::after{content:'';position:absolute;left:-40px;top:52%;width:300px;height:22px;border:2px solid rgba(255,255,255,.22);border-radius:50%;transform:rotate(-12deg)}
 
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:space-between;padding:120px 5% 60px;position:relative;z-index:1;gap:30px}
-.hero-text{flex:1.1;animation:slideInLeft .9s ease both}
-.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--cyan);padding:6px 14px;font-size:13px;letter-spacing:2px;color:var(--cyan);background:rgba(0,240,255,.08)}
-.dot{width:8px;height:8px;background:var(--neon);border-radius:50%;box-shadow:0 0 10px var(--neon);animation:blink 1.2s infinite}
-@keyframes blink{50%{opacity:.2}}
-.hero h1{font-family:'Orbitron';font-size:clamp(38px,6vw,72px);line-height:.95;margin:20px 0}
-.hero h1 b{color:transparent;-webkit-text-stroke:2px var(--cyan)}
-.hero p{font-size:19px;color:#a8c8d8;max-width:560px;line-height:1.6}
-.hero-btns{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
-.btn-ghost{background:transparent;color:#fff;border:1px solid var(--cyan)}
-.stats{display:flex;gap:30px;margin-top:40px;flex-wrap:wrap}
-.stat b{font-family:'Orbitron';font-size:28px;color:var(--cyan);display:block}
-.stat span{font-size:13px;letter-spacing:1.5px;color:#8aa8b8}
+/* --- NAV --- */
+nav{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px 6%;background:rgba(5,6,15,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:.2px}
+.logo i{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#7c3aed;font-style:normal;font-size:18px}
+.logo small{display:block;font-weight:400;font-size:11px;color:#9aa3b8;letter-spacing:1px}
+nav ul{display:flex;gap:24px;list-style:none;font-size:14px;color:#cbd2e1}
+nav ul a:hover{color:#fff}
+.btn{display:inline-block;background:#fff;color:#0b0d1a;padding:12px 20px;border-radius:999px;font-weight:700;font-size:14px;border:1px solid #fff}
+.btn:hover{background:#e9ecf5}
+.btn-dark{background:#7c3aed;border-color:#7c3aed;color:#fff}
+.btn-dark:hover{background:#6d28d9}
+.btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 6%;position:relative;z-index:2}
 
-/* ROBOT CARD */
-.robot-wrap{flex:.9;position:relative;display:flex;justify-content:center;animation:float 4s ease-in-out infinite}
-@keyframes float{50%{transform:translateY(-14px)}}
-.robot-card{width:min(380px,90vw);background:linear-gradient(180deg,#0d1d3a,#071022);border:1px solid rgba(0,240,255,.4);padding:22px;position:relative;overflow:hidden;box-shadow:0 0 50px rgba(0,240,255,.18)}
-.robot-card::before{content:'';position:absolute;left:0;right:0;height:2px;background:var(--cyan);box-shadow:0 0 20px var(--cyan);top:0;animation:scan 2.8s linear infinite}
-@keyframes scan{0%{top:0}100%{top:100%}}
-.robot-face{height:230px;background:#02101f;border:1px solid rgba(0,240,255,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative}
-.eyes{display:flex;gap:36px}
-.eye{width:58px;height:58px;background:var(--cyan);border-radius:50%;box-shadow:0 0 25px var(--cyan),inset 0 0 15px #fff;animation:eyeMove 3s ease-in-out infinite}
-@keyframes eyeMove{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-.mouth{width:140px;height:10px;background:#0a2a3a;border-radius:20px;overflow:hidden}
-.mouth i{display:block;height:100%;width:60%;background:var(--neon);animation:voice 1s infinite alternate}
-@keyframes voice{from{width:20%}to{width:95%}}
-.robot-face small{letter-spacing:3px;color:var(--cyan)}
-.robot-info{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
-.mini{background:#071426;border:1px solid #163a5a;padding:12px}
-.mini b{color:var(--cyan);font-family:'Orbitron';font-size:18px}
-.mini span{font-size:12px;color:#8aa8b8;letter-spacing:1px}
+/* --- HERO --- */
+.hero{padding:72px 0 48px;display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+.eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#c4b5fd;font-weight:700}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(38px,5.2vw,58px);line-height:1.05;margin:14px 0 16px;font-weight:700}
+.hero h1 em{font-style:normal;color:#a78bfa}
+.hero p{color:#c1c8d8;font-size:17px;max-width:560px}
+.hero p b{color:#fff}
+.hero-cta{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.trust{display:flex;gap:18px;margin-top:26px;flex-wrap:wrap;font-size:13px;color:#aeb6c8}
+.trust b{color:#fff;font-size:18px;display:block;line-height:1.2}
+.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:18px;backdrop-filter:blur(8px)}
+.hero-card img{border-radius:14px;height:230px;width:100%;object-fit:cover}
+.hero-card h3{margin:14px 0 6px;font-size:18px}
+.hero-card p{font-size:14px;color:#b9c0d0}
+.price-tag{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:14px;border-top:1px dashed rgba(255,255,255,.2)}
+.price-tag b{font-size:20px}
+.price-tag span{font-size:12px;background:#facc15;color:#111;padding:5px 10px;border-radius:999px;font-weight:800}
 
-/* SECTION */
-section{padding:70px 5%;position:relative;z-index:1}
-.sec-head{max-width:700px;margin-bottom:36px}
-.sec-head span{color:var(--cyan);letter-spacing:3px;font-weight:700}
-.sec-head h2{font-family:'Orbitron';font-size:clamp(28px,4vw,44px);margin-top:10px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-.card{background:var(--card);border:1px solid #16324d;padding:24px;position:relative;overflow:hidden;transition:.4s;cursor:pointer}
-.card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:3px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);transition:.5s}
-.card:hover{transform:translateY(-8px) scale(1.01);border-color:var(--cyan);box-shadow:0 15px 40px rgba(0,240,255,.18)}
-.card:hover::before{left:100%}
-.card .icon{font-size:42px;margin-bottom:14px}
-.card h3{font-family:'Orbitron';font-size:18px;margin-bottom:10px}
-.card p{color:#9db8c6;line-height:1.6}
-.bar{height:6px;background:#10233f;margin-top:16px;overflow:hidden}
-.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));width:0;transition:1.2s}
-.card:hover .bar i{width:var(--w)}
+/* --- SECTION --- */
+section{padding:54px 0}
+.sec-title{font-size:28px;line-height:1.2;margin:8px 0 10px}
+.sec-sub{color:#b7bdcf;max-width:640px;font-size:15px}
+.kicker{font-size:12px;letter-spacing:2px;color:#a78bfa;font-weight:800;text-transform:uppercase}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:20px}
+.card h3{font-size:17px;margin:10px 0 6px}
+.card p{font-size:14px;color:#b9c0d0}
+.icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:rgba(124,58,237,.22)}
 
-/* TERMINAL */
-.terminal{background:#02060f;border:1px solid var(--cyan);padding:22px;font-family:monospace;max-width:760px;line-height:1.9;box-shadow:0 0 30px rgba(0,240,255,.12)}
-.terminal b{color:var(--neon)}
-.typing{border-right:2px solid var(--cyan);animation:blink .8s infinite;padding-right:2px}
+/* --- PAKET --- */
+.paket{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.paket-card{background:#fff;color:#111;border-radius:20px;padding:24px;position:relative}
+.paket-card.featured{background:#111827;color:#fff;border:2px solid #a78bfa;transform:scale(1.02)}
+.paket-card.featured .badge{position:absolute;top:-12px;left:20px;background:#facc15;color:#111;font-size:12px;font-weight:800;padding:6px 10px;border-radius:999px}
+.paket-card h3{font-size:18px}
+.paket-card .harga{font-size:28px;font-weight:800;margin:10px 0 4px}
+.paket-card .harga small{font-size:13px;font-weight:400;color:#6b7280}
+.paket-card.featured .harga small{color:#cbd5e1}
+.paket-card ul{list-style:none;margin:16px 0;font-size:14px;line-height:1.9}
+.paket-card ul li::before{content:'✓ ';color:#16a34a;font-weight:800}
+.paket-card.featured ul li::before{color:#a78bfa}
+.paket-card .btn{width:100%;text-align:center}
+.paket-card.featured .btn{background:#a78bfa;border-color:#a78bfa;color:#111}
+.note{font-size:13px;color:#9aa3b8;margin-top:12px;text-align:center}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(30px) scale(.98);transition:.7s cubic-bezier(.2,.8,.2,1)}
-.reveal.active{opacity:1;transform:none}
+/* --- PORTO --- */
+.porto{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.porto figure{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:18px;overflow:hidden}
+.porto img{height:180px;width:100%;object-fit:cover}
+.porto figcaption{padding:16px}
+.porto figcaption b{display:block}
+.porto figcaption span{font-size:13px;color:#aeb6c8}
 
-/* FOOTER */
-footer{padding:30px 5%;text-align:center;border-top:1px solid #16324d;color:#7a93a3;position:relative;z-index:1}
-@keyframes slideInLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
-@media(max-width:820px){.hero{flex-direction:column;text-align:center}.hero-btns,.stats{justify-content:center}nav ul{display:none}}
+/* --- TESTI --- */
+.testi{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.testi blockquote{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:20px;font-size:14px}
+.testi footer{margin-top:12px;font-weight:700;font-size:14px}
+.testi footer span{display:block;font-weight:400;color:#9aa3b8;font-size:12px}
+
+/* --- FAQ / LANGKAH --- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+.step{border:1px dashed rgba(255,255,255,.2);border-radius:16px;padding:18px}
+.step b{font-size:28px;color:#a78bfa}
+.step h4{margin:8px 0 6px}
+.step p{font-size:13px;color:#b9c0d0}
+
+/* --- FOOTER --- */
+footer{border-top:1px solid rgba(255,255,255,.1);padding:28px 0 40px;margin-top:20px;font-size:13px;color:#9aa3b8;position:relative;z-index:2}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* --- POPUP --- */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:16px}
+.modal.open{display:flex}
+.modal-box{background:#fff;color:#111;width:min(620px,100%);border-radius:20px;overflow:hidden;max-height:90vh;overflow-y:auto;animation:pop .25s ease}
+@keyframes pop{from{transform:translateY(14px) scale(.98);opacity:0}to{transform:none;opacity:1}}
+.modal-head{padding:20px 22px 0;display:flex;justify-content:space-between;align-items:start}
+.modal-head h3{font-size:22px;line-height:1.2}
+.modal-head p{font-size:13px;color:#6b7280;margin-top:4px}
+.close{width:36px;height:36px;border-radius:50%;border:1px solid #e5e7eb;background:#fff;font-size:18px;cursor:pointer}
+.modal-body{padding:18px 22px 22px}
+.modal-body img{border-radius:12px;height:200px;width:100%;object-fit:cover;margin-bottom:14px}
+.modal-body h4{margin:16px 0 8px}
+.modal-body ul{padding-left:18px;font-size:14px;line-height:1.8;color:#374151}
+.specs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:14px 0}
+.specs div{background:#f3f4f6;border-radius:12px;padding:12px;text-align:center}
+.specs b{display:block;font-size:16px}
+.specs span{font-size:11px;color:#6b7280;letter-spacing:.5px}
+.modal-cta{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.modal-cta .btn{flex:1;text-align:center}
+.wa{background:#16a34a;border-color:#16a34a;color:#fff}
+@media(max-width:860px){.hero,.grid3,.paket,.porto,.testi,.steps{grid-template-columns:1fr}.planet{display:none}nav ul{display:none}.paket-card.featured{transform:none}.specs{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
+<div class="stars"></div><div class="nebula"></div><div class="planet"></div>
 
 <nav>
-  <div class="logo">NEXA<span>-BOT</span> 🤖</div>
-  <ul>
-    <li><a href="#home">HOME</a></li>
-    <li><a href="#fitur">FITUR</a></li>
-    <li><a href="#sistem">SISTEM</a></li>
-    <li><a href="#kontak">KONTAK</a></li>
-  </ul>
-  <button class="btn" onclick="activateRobot()">AKTIFKAN ROBOT</button>
+  <a href="#" class="logo"><i>✦</i><span>Galaksi Web Studio<small>Jasa Website • Malang</small></span></a>
+  <ul><li><a href="#layanan">Layanan</a></li><li><a href="#paket">Harga</a></li><li><a href="#portofolio">Portofolio</a></li><li><a href="#testimoni">Testimoni</a></li><li><a href="#cara">Cara Pesan</a></li></ul>
+  <a class="btn" href="https://wa.me/62812XXXXXXX?text=Halo%20Galaksi%20Web%2C%20saya%20mau%20tanya%20pembuatan%20website" target="_blank">Chat WA</a>
 </nav>
 
-<header class="hero" id="home">
-  <div class="hero-text">
-    <div class="badge"><span class="dot"></span> SYSTEM ONLINE • v4.0 AI CORE</div>
-    <h1>MASA DEPAN<br><b>ROBOTIK</b><br>SUDAH DATANG.</h1>
-    <p>NEXA-BOT adalah robot AI generasi terbaru. Bisa belajar, beradaptasi, dan bekerja bersama manusia dengan presisi tinggi dan kecepatan super.</p>
-    <div class="hero-btns">
-      <button class="btn" onclick="activateRobot()">▶ JELAJAHI ROBOT</button>
-      <button class="btn btn-ghost" onclick="document.getElementById('fitur').scrollIntoView({behavior:'smooth'})">LIHAT FITUR</button>
-    </div>
-    <div class="stats">
-      <div class="stat"><b>99.9%</b><span>AKURASI AI</span></div>
-      <div class="stat"><b>0.02s</b><span>RESPON</span></div>
-      <div class="stat"><b>24/7</b><span>OPERASIONAL</span></div>
-    </div>
-  </div>
-
-  <div class="robot-wrap">
-    <div class="robot-card">
-      <div class="robot-face">
-        <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
-        <div class="mouth"><i></i></div>
-        <small id="robotStatus">STATUS: STANDBY</small>
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <div class="eyebrow">★ Buka setiap hari • Respon cepat • Malang & Online</div>
+      <h1>Website bisnismu,<br>seindah <em>langit malam.</em></h1>
+      <p>Kami bantu UMKM, toko, sekolah, dan jasa di Malang punya website yang <b>rapi, cepat dibuka di HP, dan gampang ditemukan di Google.</b> Kamu tidak perlu paham teknis, kami yang urus sampai jadi.</p>
+      <div class="hero-cta">
+        <a class="btn btn-dark" href="#paket">Lihat Harga & Paket →</a>
+        <a class="btn btn-ghost" href="https://wa.me/62812XXXXXXX?text=Halo%2C%20boleh%20konsultasi%20gratis%20dulu%20nggak%3F" target="_blank">Konsultasi Gratis</a>
       </div>
-      <div class="robot-info">
-        <div class="mini"><b id="cpu">12%</b><span><br>CPU LOAD</span></div>
-        <div class="mini"><b>98%</b><span><br>BATERAI</span></div>
-        <div class="mini"><b>36.5°C</b><span><br>SUHU MESIN</span></div>
-        <div class="mini"><b id="mode">AUTO</b><span><br>MODE</span></div>
+      <div class="trust">
+        <div><b>120+</b>Website selesai</div>
+        <div><b>4.9 / 5</b>Rating klien</div>
+        <div><b>3-7 hari</b>Rata-rata jadi</div>
       </div>
+      <p style="font-size:13px;margin-top:16px;color:#8b93a8">Terakhir dikerjakan: Website Toko Kue di Blimbing, Website Laundry di Sawojajar, dan Company Profile PT di Singosari.</p>
     </div>
-  </div>
-</header>
 
-<section id="fitur" class="reveal">
-  <div class="sec-head">
-    <span>// 01 - KEMAMPUAN</span>
-    <h2>Teknologi Cerdas, Gerak Presisi.</h2>
-  </div>
-  <div class="grid">
-    <div class="card"><div class="icon">🧠</div><h3>AI NEURAL CORE</h3><p>Otak AI yang belajar dari setiap interaksi dan semakin pintar setiap hari.</p><div class="bar"><i style="--w:95%"></i></div></div>
-    <div class="card"><div class="icon">👁️</div><h3>VISION 360°</h3><p>Sensor kamera dan LiDAR untuk melihat lingkungan secara real-time 360 derajat.</p><div class="bar"><i style="--w:90%"></i></div></div>
-    <div class="card"><div class="icon">🦾</div><h3>GERAK PRESISI</h3><p>Motor servo high-torque dengan akurasi gerakan hingga 0.01 milimeter.</p><div class="bar"><i style="--w:88%"></i></div></div>
-    <div class="card"><div class="icon">🗣️</div><h3>VOICE AI</h3><p>Bisa berbicara 40+ bahasa dan memahami perintah suara secara natural.</p><div class="bar"><i style="--w:92%"></i></div></div>
-  </div>
-</section>
+    <div class="hero-card">
+      <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=900&q=80" alt="Langit galaksi dan bintang">
+      <h3>Kenapa namanya Galaksi?</h3>
+      <p>Karena setiap bisnis itu seperti bintang. Tugas kami bikin bisnismu kelihatan paling terang di antara yang lain, pas orang cari di Google.</p>
+      <div class="price-tag"><span>Mulai dari</span><b>Rp 750rb</b><span>Promo Nov</span></div>
+      <p style="font-size:12px;margin-top:8px;color:#9aa3b8">Tanpa biaya tersembunyi. Harga sudah termasuk domain .com & hosting 1 tahun untuk paket Bisnis.</p>
+    </div>
+  </header>
 
-<section id="sistem" class="reveal">
-  <div class="sec-head">
-    <span>// 02 - TERMINAL SISTEM</span>
-    <h2>Perintah Langsung ke Robot.</h2>
-  </div>
-  <div class="terminal" id="terminal">
-    <div><b>nexa@robot:~$</b> boot --system core</div>
-    <div>✓ Neural Engine loaded...</div>
-    <div>✓ Servo motor calibrated...</div>
-    <div>✓ Vision sensor active...</div>
-    <div><b>nexa@robot:~$</b> <span id="typed"></span><span class="typing"></span></div>
-  </div>
-  <br>
-  <button class="btn" onclick="runCommand()">▶ JALANKAN PERINTAH</button>
-</section>
+  <section id="layanan">
+    <div class="kicker">Apa yang kami kerjakan</div>
+    <h2 class="sec-title">Bukan sekadar website, tapi alat jualan.</h2>
+    <p class="sec-sub">Banyak website bagus tapi sepi. Kami fokus ke yang penting: gampang dibuka, jelas isinya, dan pengunjung jadi chat / beli.</p>
+    <div class="grid3">
+      <div class="card"><div class="icon">🛍️</div><h3>Toko Online / Katalog</h3><p>Buat jualan di web sendiri. Ada katalog, tombol WA, ongkir, dan pembayaran transfer / QRIS.</p></div>
+      <div class="card"><div class="icon">🏢</div><h3>Company Profile</h3><p>Buat perusahaan / sekolah / yayasan kelihatan profesional dan dipercaya klien.</p></div>
+      <div class="card"><div class="icon">📍</div><h3>Landing Page Promo</h3><p>Satu halaman fokus untuk satu promo. Cocok buat iklan Instagram / TikTok biar tidak boncos.</p></div>
+    </div>
+  </section>
 
-<section id="kontak" class="reveal" style="text-align:center">
-  <span style="color:var(--cyan);letter-spacing:3px;font-weight:700">// 03 - HUBUNGI KAMI</span>
-  <h2 style="font-family:'Orbitron';font-size:36px;margin:14px 0">Siap Masuk Era Robotik?</h2>
-  <p style="color:#9db8c6;max-width:600px;margin:0 auto 24px">Dapatkan demo gratis NEXA-BOT untuk bisnis, sekolah, atau rumah kamu.</p>
-  <button class="btn" onclick="alert('🤖 NEXA-BOT: Pesan terkirim! Tim kami akan menghubungi kamu.')">KIRIM PERMINTAAN DEMO</button>
-</section>
+  <section id="paket">
+    <div class="kicker">Harga jujur</div>
+    <h2 class="sec-title">Pilih paket yang paling masuk akal.</h2>
+    <p class="sec-sub">Klik <b>Lihat Detail</b> untuk baca isi paketnya sampai habis. Kalau masih bingung, chat saja, kami bantu pilihkan.</p>
 
-<footer>© 2026 NEXA-BOT — Dibuat dengan Teknologi AI & Robotic • Malang, Indonesia</footer>
+    <div class="paket">
+      <article class="paket-card">
+        <h3>🌑 Paket Orbit</h3>
+        <div class="harga">Rp 750rb <small>/ sekali bayar</small></div>
+        <p style="font-size:13px;color:#6b7280">Buat yang baru mulai, butuh website sederhana tapi rapi.</p>
+        <ul><li>1 Halaman Landing Page</li><li>Domain .my.id + Hosting 1 thn</li><li>Tombol WhatsApp</li><li>Desain Mobile Friendly</li><li>Jadi 3-4 hari</li></ul>
+        <button class="btn btn-dark" onclick="openModal('orbit')">Lihat Detail →</button>
+      </article>
+
+      <article class="paket-card featured">
+        <span class="badge">PALING BANYAK DIPESAN</span>
+        <h3>🌌 Paket Galaksi</h3>
+        <div class="harga">Rp 1,9jt <small>/ sekali bayar</small></div>
+        <p style="font-size:13px;color:#cbd5e1">Buat UMKM yang serius jualan online dan mau kelihatan profesional.</p>
+        <ul><li>5-7 Halaman + Katalog Produk</li><li>Domain .com + Hosting 1 thn</li><li>SEO Dasar Google</li><li>Integrasi WA + Maps + IG</li><li>Admin bisa edit sendiri</li><li>Jadi 5-7 hari</li></ul>
+        <button class="btn" onclick="openModal('galaksi')">Lihat Detail →</button>
+      </article>
+
+      <article class="paket-card">
+        <h3>🚀 Paket Supernova</h3>
+        <div class="harga">Rp 4,5jt <small>/ sekali bayar</small></div>
+        <p style="font-size:13px;color:#6b7280">Buat toko online / perusahaan yang butuh fitur lengkap.</p>
+        <ul><li>Toko Online + Payment QRIS</li><li>Blog + SEO Lanjutan</li><li>Domain .com + Hosting 1 thn</li><li>Dashboard Admin Lengkap</li><li>Pendampingan 30 hari</li></ul>
+        <button class="btn btn-dark" onclick="openModal('supernova')">Lihat Detail →</button>
+      </article>
+    </div>
+    <p class="note">Semua paket bisa cicil 2x. DP 50% untuk mulai pengerjaan, pelunasan setelah website jadi dan kamu cek sendiri.</p>
+  </section>
+
+  <section id="portofolio">
+    <div class="kicker">Hasil kerja nyata</div>
+    <h2 class="sec-title">Beberapa website yang sudah kami kerjakan.</h2>
+    <div class="porto">
+      <figure><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="Website resto"><figcaption><b>Resto & Kafe — Sawojajar</b><span>Menu online + reservasi WA • Naik 2x order dari Google</span></figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" alt="Website toko"><figcaption><b>Toko Baju — Blimbing</b><span>Katalog 120 produk + checkout WA</span></figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80" alt="Website sekolah"><figcaption><b>Sekolah — Singosari</b><span>Profil, PPDB online, galeri kegiatan</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section id="testimoni">
+    <div class="kicker">Kata mereka</div>
+    <h2 class="sec-title">Bukan kata kami, kata klien.</h2>
+    <div class="testi">
+      <blockquote>“Awalnya saya kira bikin website itu ribet dan mahal. Ternyata di Galaksi dibantu semua, dari foto produk sampai tulisan. Sekarang customer banyak yang datang dari Google.”<footer>Rina — Pemilik Toko Kue, Blimbing<span>Paket Galaksi • Website selesai 6 hari</span></footer></blockquote>
+      <blockquote>“Enak diajak komunikasi, fast respon. Revisi juga dilayani, tidak ditinggal setelah bayar. Website sekolah kami sekarang kelihatan jauh lebih rapi.”<footer>Pak Budi — Admin Sekolah, Singosari<span>Paket Galaksi • 2025</span></footer></blockquote>
+    </div>
+  </section>
+
+  <section id="cara">
+    <div class="kicker">Cara pesan — gampang banget</div>
+    <h2 class="sec-title">4 langkah, website langsung jalan.</h2>
+    <div class="steps">
+      <div class="step"><b>01</b><h4>Chat & Cerita</h4><p>Ceritakan usahamu lewat WA. Kami bantu pilihkan paket yang pas, tidak maksa.</p></div>
+      <div class="step"><b>02</b><h4>DP & Kumpul Materi</h4><p>Kirim logo, foto, harga, dan alamat. Kalau belum punya, kami bantu buatkan.</p></div>
+      <div class="step"><b>03</b><h4>Kami Kerjakan</h4><p>Kamu bisa lihat progresnya. Revisi 2x gratis sampai kamu cocok.</p></div>
+      <div class="step"><b>04</b><h4>Jadi & Serah Terima</h4><p>Website online, kami ajari cara editnya. Garansi error 30 hari.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:28px"><a class="btn btn-dark" href="https://wa.me/62812XXXXXXX?text=Halo%2C%20saya%20mau%20tanya%20paket%20website" target="_blank">Tanya Lewat WA Sekarang →</a><p style="font-size:13px;color:#9aa3b8;margin-top:10px">Atau datang langsung: Jl. Raya Tlogomas No. 88, Malang — buka Senin-Sabtu 09.00-17.00</p></div>
+  </section>
+</div>
+
+<footer><div class="wrap"><span>© 2026 Galaksi Web Studio — Malang, Jawa Timur. Dibuat dengan kopi & begadang.</span><span>IG: @galaksiweb.malang • WA: +62 812-XXXX-XXXX</span></div></footer>
+
+<!-- POPUP DETAIL -->
+<div class="modal" id="modal" onclick="if(event.target===this) closeModal()">
+  <div class="modal-box">
+    <div class="modal-head"><div><h3 id="mTitle">Detail Paket</h3><p id="mSub">Galaksi Web Studio</p></div><button class="close" onclick="closeModal()">×</button></div>
+    <div class="modal-body" id="mBody"></div>
+  </div>
+</div>
 
 <script>
-const texts = ["hello, saya NEXA-BOT...", "scan lingkungan... selesai.", "siap membantu manusia.", "mode robotic aktif!"];
-let ti = 0, ci = 0;
-function typeEffect(){
-  const el = document.getElementById('typed');
-  const cur = texts[ti];
-  if(ci <= cur.length){ el.textContent = cur.slice(0, ci); ci++; setTimeout(typeEffect, 55); }
-  else{ setTimeout(()=>{ ti = (ti+1)%texts.length; ci=0; typeEffect(); }, 1600); }
+const DATA = {
+  orbit:{
+    title:'🌑 Paket Orbit — Rp 750rb',
+    sub:'Cocok untuk usaha baru / personal. Sederhana, cepat, langsung bisa dipakai jualan.',
+    img:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80',
+    desc:'Paket ini kami buat untuk kamu yang belum pernah punya website sama sekali. Fokusnya satu: orang yang lihat langsung paham kamu jualan apa, dan langsung bisa chat WA. Tidak perlu fitur aneh-aneh, yang penting rapi dan cepat dibuka di HP.',
+    specs:[['3-4 Hari','Lama Pengerjaan'],['1 Halaman','Landing Page'],['2x','Revisi Gratis']],
+    list:['Landing page 1 halaman (Profil, Produk/Jasa, Testimoni, Kontak)','Domain .my.id + hosting 1 tahun (kami yang uruskan)','Tombol WhatsApp melayang + link Instagram & Google Maps','Desain menyesuaikan warna & logo usahamu','Bisa dibuka cepat di HP & laptop','Tutorial video cara edit tulisan & foto sendiri'],
+    cocok:'Cocok untuk: jasa laundry, barbershop, makelar, freelancer, katering rumahan, dan usaha baru yang mau kelihatan serius.',
+    tidak:'Tidak termasuk: katalog banyak produk, toko online dengan keranjang, dan SEO lanjutan. Kalau butuh itu, ambil Paket Galaksi.',
+    wa:'Halo, saya tertarik Paket Orbit Rp 750rb. Boleh info cara pesannya?'
+  },
+  galaksi:{
+    title:'🌌 Paket Galaksi — Rp 1,9jt',
+    sub:'Paket paling sering dipesan UMKM di Malang. Lengkap, profesional, dan gampang dirawat.',
+    img:'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80',
+    desc:'Ini paket tengah yang paling seimbang antara harga dan hasil. Kamu dapat website 5-7 halaman lengkap dengan katalog produk, SEO dasar supaya muncul di Google, dan admin yang bisa kamu edit sendiri tanpa harus selalu chat kami. Biasanya yang pesan paket ini adalah toko, resto, klinik, dan jasa yang sudah jalan tapi belum punya website yang bener.',
+    specs:[['5-7 Hari','Lama Pengerjaan'],['5-7 Halaman','Website Lengkap'],['3x','Revisi Gratis']],
+    list:['Halaman: Beranda, Tentang Kami, Produk / Layanan, Galeri, Testimoni, Blog, Kontak','Katalog produk sampai 50 produk + tombol order via WA','Domain .com + hosting 1 tahun + SSL (gembok aman)','SEO dasar: judul Google, deskripsi, Google Maps & Google Bisnisku','Integrasi WhatsApp, Instagram, TikTok, dan Google Maps','Desain custom, bukan template pasaran','Pelatihan edit website via video call 1x (30 menit)','Garansi error teknis 30 hari'],
+    cocok:'Cocok untuk: toko baju, toko kue, resto, laundry, salon, travel, bimbel, sekolah, dan klinik.',
+    tidak:'Tidak termasuk: sistem pembayaran otomatis QRIS / transfer otomatis dan stok real-time. Itu ada di Paket Supernova.',
+    wa:'Halo, saya tertarik Paket Galaksi Rp 1,9jt. Boleh konsultasi dulu?'
+  },
+  supernova:{
+    title:'🚀 Paket Supernova — Rp 4,5jt',
+    sub:'Untuk bisnis yang sudah besar dan butuh website yang kerja full otomatis.',
+    img:'https://images.unsplash.com/photo-1531297484001-80022131f5a9?w=900&q=80',
+    desc:'Paket ini untuk kamu yang sudah capek balas chat satu-satu. Website sudah bisa terima order, hitung ongkir, terima pembayaran QRIS, dan rekap order masuk. Cocok untuk toko online yang ordernya sudah puluhan per hari, atau perusahaan yang butuh company profile premium dengan blog SEO.',
+    specs:[['10-14 Hari','Lama Pengerjaan'],['Toko Online','+ Blog SEO'],['30 Hari','Pendampingan']],
+    list:['Semua fitur Paket Galaksi','Toko online: keranjang, ongkir otomatis, kupon diskon','Pembayaran QRIS + transfer bank (konfirmasi otomatis)','Dashboard admin: kelola produk, order, dan artikel','Blog + SEO lanjutan (10 artikel awal kami bantu)','Desain premium + animasi galaksi custom','Pendampingan 30 hari via WA grup khusus','Backup & keamanan website'],
+    cocok:'Cocok untuk: toko online, distributor, brand fashion, perusahaan, dan sekolah / yayasan besar.',
+    tidak:'Tidak termasuk: biaya iklan Google / Meta Ads dan foto produk profesional (bisa tambah, tanya dulu).',
+    wa:'Halo, saya tertarik Paket Supernova Rp 4,5jt. Boleh minta contoh demo tokonya?'
+  }
+};
+function openModal(key){
+  const d = DATA[key];
+  document.getElementById('mTitle').innerText = d.title;
+  document.getElementById('mSub').innerText = d.sub;
+  document.getElementById('mBody').innerHTML = `
+    <img src="${d.img}" alt="${d.title}">
+    <p>${d.desc}</p>
+    <div class="specs">${d.specs.map(s=>`<div><b>${s[0]}</b><span>${s[1]}</span></div>`).join('')}</div>
+    <h4>Apa saja yang kamu dapat?</h4>
+    <ul>${d.list.map(x=>`<li>${x}</li>`).join('')}</ul>
+    <h4>Cocok untuk siapa?</h4><p style="font-size:14px;color:#374151">${d.cocok}</p>
+    <h4>Yang perlu kamu tahu</h4><p style="font-size:14px;color:#374151">${d.tidak}</p>
+    <div class="modal-cta">
+      <a class="btn wa" target="_blank" href="https://wa.me/62812XXXXXXX?text=${encodeURIComponent(d.wa)}">Chat WA & Pesan Paket Ini</a>
+      <button class="btn btn-ghost" style="color:#111;border-color:#d1d5db" onclick="closeModal()">Tutup Dulu</button>
+    </div>
+    <p style="font-size:12px;color:#9ca3af;margin-top:10px;text-align:center">Bisa cicil 2x • DP 50% mulai pengerjaan • Pelunasan setelah kamu cek & setuju</p>
+  `;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
 }
-typeEffect();
-
-function activateRobot(){
-  document.getElementById('robotStatus').textContent = 'STATUS: ACTIVE • MODE ROBOTIK';
-  document.getElementById('cpu').textContent = '87%';
-  document.getElementById('mode').textContent = 'TURBO';
-  document.querySelector('.robot-card').style.boxShadow = '0 0 70px rgba(0,255,157,.35)';
-  alert('🤖 NEXA-BOT AKTIF! Semua sistem berjalan.');
-}
-
-function runCommand(){
-  const t = document.getElementById('terminal');
-  t.innerHTML += `<div><b>nexa@robot:~$</b> execute --task demo</div><div style="color:#00f0ff">🤖 Robot bergerak... memindai... tugas selesai!</div>`;
-}
-
-const obs = new IntersectionObserver(es => {
-  es.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
-},{threshold:.15});
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+function closeModal(){ document.getElementById('modal').classList.remove('open'); document.body.style.overflow=''; }
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 </script>
 </body>
 </html>
